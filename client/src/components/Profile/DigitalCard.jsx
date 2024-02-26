@@ -23,12 +23,10 @@ import ScrollCarousel from "scroll-carousel";
 import gallery from "../../assets/gallery/1.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-
 //products carosel :
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import larrow from "../../assets/Social Medias/larrow.gif";
-import rarrow from "../../assets/Social Medias/rarrow.gif";
+import '../../../node_modules/scroll-carousel/dist/scroll.carousel.min.css';
 const DigitalCard = () => {
   function AutoWriteText() {
     const [text, setText] = useState("");
@@ -50,11 +48,13 @@ const DigitalCard = () => {
 
     return <div>{text}</div>;
   }
+
   new ScrollCarousel(".my-carousel", {
-    speed: 8,
-    smartSpeed: true,
     autoplay: true,
+    smartSpeed: true,
+    direction: 'ltr'
   });
+
   const buttonStyle = {
     width: "30px",
     height: "30px",
@@ -87,7 +87,7 @@ const DigitalCard = () => {
   return (
     <>
       <div className="digitalcard_container">
-        <div className="card_box">
+        <div className="card_box" style={{border:"2px solid white"}}>
           {/* First */}
           <div className="basic_details">
             <div className="banner_image">
@@ -301,14 +301,18 @@ const DigitalCard = () => {
           </div>
 
           <div className="gallery_details">
+   
             <div className="my-carousel">
               <div className="my-slide">
+                {" "}
                 <img src={gallery} alt="" />
               </div>
               <div className="my-slide">
+                {" "}
                 <img src={gallery} alt="" />
               </div>
               <div className="my-slide">
+                {" "}
                 <img src={gallery} alt="" />
               </div>
             </div>
@@ -455,97 +459,97 @@ const DigitalCard = () => {
             </form>
           </div>
 
-                  {/* //Enquiry page */}
+          {/* //Enquiry page */}
 
-                  <div className="enquiry">
-              <div className="enquiry_title">
-                <h4>Enquiry Form</h4>
+          <div className="enquiry">
+            <div className="enquiry_title">
+              <h4>Enquiry Form</h4>
+              <img
+                width="64"
+                height="64"
+                src="https://img.icons8.com/nolan/64/questions.png"
+                alt="questions"
+              />
+            </div>
+            <div className="equiry_container">
+              <div className="enquiry_heading">
+                <h5> Be in Touch </h5>
                 <img
-                  width="64"
-                  height="64"
-                  src="https://img.icons8.com/nolan/64/questions.png"
-                  alt="questions"
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/fluency/48/group-background-selected.png"
+                  alt="group-background-selected"
                 />
               </div>
-              <div className="equiry_container">
-                <div className="enquiry_heading">
-                  <h5> Be in Touch </h5>
+              <form action="">
+                <div className="form_group">
+                  <input
+                    type="text"
+                    placeholder="Enter Full Name"
+                    name="name"
+                    id="name"
+                  />
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/nolan/64/user.png"
+                    alt="user"
+                  />
+                </div>
+                <div className="form_group">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    name="email"
+                    id="email"
+                  />
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/nolan/64/new-post.png"
+                    alt="new-post"
+                  />
+                </div>
+                <div className="form_group">
+                  <input
+                    type="tel"
+                    placeholder="Enter your mobile Number"
+                    name="tel"
+                    id="tel"
+                  />
+                  <img
+                    width="64"
+                    height="64"
+                    src="https://img.icons8.com/nolan/64/phone-disconnected.png"
+                    alt="phone-disconnected"
+                  />
+                </div>
+                <div className="form_group">
+                  <textarea
+                    name="msg"
+                    id="msg"
+                    cols="30"
+                    rows="4"
+                    placeholder="Tell something about us !"
+                  ></textarea>
                   <img
                     width="48"
                     height="48"
-                    src="https://img.icons8.com/fluency/48/group-background-selected.png"
-                    alt="group-background-selected"
+                    src="https://img.icons8.com/fluency/48/edit-text-file.png"
+                    alt="edit-text-file"
                   />
                 </div>
-                <form action="">
-                  <div className="form_group">
-                    <input
-                      type="text"
-                      placeholder="Enter Full Name"
-                      name="name"
-                      id="name"
-                    />
-                    <img
-                      width="64"
-                      height="64"
-                      src="https://img.icons8.com/nolan/64/user.png"
-                      alt="user"
-                    />
-                  </div>
-                  <div className="form_group">
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      name="email"
-                      id="email"
-                    />
-                    <img
-                      width="64"
-                      height="64"
-                      src="https://img.icons8.com/nolan/64/new-post.png"
-                      alt="new-post"
-                    />
-                  </div>
-                  <div className="form_group">
-                    <input
-                      type="tel"
-                      placeholder="Enter your mobile Number"
-                      name="tel"
-                      id="tel"
-                    />
-                    <img
-                      width="64"
-                      height="64"
-                      src="https://img.icons8.com/nolan/64/phone-disconnected.png"
-                      alt="phone-disconnected"
-                    />
-                  </div>
-                  <div className="form_group">
-                    <textarea
-                      name="msg"
-                      id="msg"
-                      cols="30"
-                      rows="4"
-                      placeholder="Tell something about us !"
-                    ></textarea>
-                    <img
-                      width="48"
-                      height="48"
-                      src="https://img.icons8.com/fluency/48/edit-text-file.png"
-                      alt="edit-text-file"
-                    />
-                  </div>
-                  <div className="form_actions">
-                    <button type="submit">Send Message</button>
-                  </div>
-                </form>
-              </div>
+                <div className="form_actions">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
             </div>
+          </div>
 
-{/* Copyrights */}
-<div className="copyright">
-              <p>Copyright Reserved &copy; 2024 DigitalCard.com</p>
-            </div>
+          {/* Copyrights */}
+          <div className="copyright">
+            <p>Copyright Reserved &copy; 2024 DigitalCard.com</p>
+          </div>
         </div>
       </div>
     </>

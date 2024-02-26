@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import "node_modules/scroll-carousel/dist/scroll.carousel.min.css";
+
 .digitalcard_container {
   width: 100vw;
   height: 100vh;
@@ -21,7 +21,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     background: linear-gradient(#aae0ff, #f8f8f8);
-
+border-radius: 5px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
     //First::after
     .basic_details {
@@ -183,6 +183,10 @@
           h4 {
             font-size: 0.8rem;
             font-weight: 600;
+
+            @media screen and (max-width:600px){
+              font-size: 0.7rem;
+            }
           }
           p {
             font-size: 0.6rem;
@@ -282,7 +286,7 @@
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
         background-color: #ffffff;
         border-radius: 1rem;
-        overflow-y: scroll;
+        // overflow-y: scroll;
         padding: 10px;
         transition: scale 0.4s ease-in;
         .service_pic {
