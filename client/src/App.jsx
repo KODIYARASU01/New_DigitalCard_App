@@ -1,15 +1,15 @@
 import "./App.css";
-// import Register from "./components/Register";
-// import Reset from "./components/Reset";
-// import Recovery from "./components/Recovery";
-// import Profile from "./components/Profile";
-// import Password from "./components/Password";
+import Register from "./components/Register";
+import Reset from "./components/Reset";
+import Recovery from "./components/Recovery";
+import Profile from "./components/Profile";
+import Password from "./components/Password";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// import Admin from "./components/Admin/Admin";
-// import Login from "./components/Login";
-// import UserProfile from "./components/Profile/Profile";
-// import Sidebar from "./components/Profile/Sidebar";
+import Admin from "./components/Admin/Admin";
+import Login from "./components/Login";
+import UserProfile from "./components/Profile/Profile";
+import Sidebar from "./components/Profile/Sidebar";
 import DigitalCard from "./components/Profile/DigitalCard";
 let router = createBrowserRouter([
   // {
@@ -37,21 +37,21 @@ let router = createBrowserRouter([
   //   path: "/profile",
   //   element: <Profile />,
   // },
-  // {
-  //   path: "/user-profile",
-  //   element: <UserProfile />,
-  // },
+  {
+    path: "/",
+    element: <UserProfile />,
+  },
   // {
   //   path: "/sidebar",
   //   element: <Sidebar />,
   // },
-  {
-    path: "/",
-    element: <DigitalCard />,
-  },
+  // {
+  //   path: "/digitalCard",
+  //   element: <DigitalCard />,
+  // },
   // {
   //   path: "/admin",
-  //   element: <Admin />,s
+  //   element: <Admin />,
   // },
 ]);
 const App = () => {
