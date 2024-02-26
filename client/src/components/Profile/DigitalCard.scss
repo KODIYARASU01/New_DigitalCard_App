@@ -17,10 +17,10 @@
     position: relative;
     min-width: 35%;
     max-width: 35%;
-    height: 600vh;
+    height: auto;
     overflow-x: hidden;
     overflow-y: auto;
-    background: linear-gradient(#aae0ff, #f8f8f8,);
+    background: linear-gradient(#aae0ff, #f8f8f8);
 
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
     //First::after
@@ -288,7 +288,7 @@
         .service_pic {
           width: 100%;
           overflow: hidden;
-          height: 130px;
+          height: 150px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -341,7 +341,7 @@
         display: none;
       }
     }
-    .gallery_title{
+    .gallery_title {
       width: 100%;
       display: flex;
       align-items: center;
@@ -376,32 +376,29 @@
         }
       }
     }
-    .gallery_details{
+    .gallery_details {
       width: 95%;
       margin: auto;
 
-      .my-carousel{
-      width: 100%;
+      .my-carousel {
+        width: 100%;
 
-
-        .my-slide{
-width: 100%;
-          img{
-            width:400px;
+        .my-slide {
+          width: 100%;
+          img {
+            width: 400px;
             overflow: hidden;
             height: 200px;
             object-fit: cover;
             object-position: center;
 
-            @media screen and (max-width:900px){
-             
+            @media screen and (max-width: 900px) {
             }
           }
         }
       }
-
     }
-    .testimonial_title{
+    .testimonial_title {
       width: 100%;
       display: flex;
       align-items: center;
@@ -436,39 +433,386 @@ width: 100%;
         }
       }
     }
-    .testimonial_details{
+    .testimonial_details {
       width: 98%;
       margin: auto;
-.carousel{
+      .carousel {
+        .slide_1 {
+          width: 100%;
+          height: 250px;
+          padding: 15px 5px;
+          background-color: #ffffff;
+          border-radius: 1rem;
+          box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+            rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        }
+        img {
+          width: 100px;
+          // height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center;
+        }
+        .name {
+          margin: 10px auto;
+          letter-spacing: 1px;
+          font-weight: bold;
+          font-size: 0.9rem;
+          color: royalblue;
+        }
+        small {
+          padding: 10px;
+          color: grey;
+        }
+      }
+    }
+    .product_title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      position: relative;
 
-  .slide_1{
-    width: 100%;
-    height: 250px;
-    padding: 15px 5px;
-    background-color: #ffffff;
-    border-radius: 1rem;
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-  }
-  img{
-    width: 100px;
-    // height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-  }
-  .name{
-    margin: 10px auto;
-    letter-spacing: 1px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: royalblue;
-  }
-  small{
-    padding: 10px ;
-    color: grey;
-  }
-}
+      h4 {
+        padding: 10px;
+      }
+      &::before {
+        content: "";
+        height: 3px;
+        background-color: #000;
+        width: 30%;
+        display: block;
 
+        @media screen and (max-width: 900px) {
+          width: 20%;
+        }
+      }
+      &::after {
+        content: "";
+        height: 3px;
+        background-color: #000;
+        width: 30%;
+        display: block;
+        @media screen and (max-width: 900px) {
+          width: 20%;
+        }
+      }
+    }
+
+    .product_details {
+      width: 90%;
+
+      gap: 10px;
+      padding: 10px;
+      margin: auto;
+      .each-slide-effect {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+        background-color: #ffffff;
+        border-radius: 1rem;
+        padding: 10px;
+      }
+      .each-slide-effect > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        min-height: 150px;
+        border-radius: 1rem;
+        height: 200px;
+        width: 320px;
+        margin: 10px auto;
+      }
+
+      .each-slide-effect span {
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-align: center;
+
+        &::after {
+          content: "";
+          display: block;
+          height: 3px;
+          background-color: rgb(107, 196, 255);
+          width: 100%;
+          border-radius: 2px;
+        }
+      }
+      p {
+        width: 100%;
+        overflow: hidden;
+        padding: 5px;
+        font-size: 0.8rem;
+        text-align: center;
+      }
+    }
+    .feedback_title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      position: relative;
+
+      h4 {
+        padding: 10px;
+      }
+      &::before {
+        content: "";
+        height: 3px;
+        background-color: #000;
+        width: 30%;
+        display: block;
+
+        @media screen and (max-width: 900px) {
+          width: 20%;
+        }
+      }
+      &::after {
+        content: "";
+        height: 3px;
+        background-color: #000;
+        width: 30%;
+        display: block;
+        @media screen and (max-width: 900px) {
+          width: 20%;
+        }
+      }
+    }
+    .feedback_container {
+      margin: 1rem auto;
+
+      .feedback_heading {
+        padding: 10px;
+
+        h5 {
+          color: grey;
+          font-weight: 600;
+          font-size: 0.8rem;
+        }
+      }
+      form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: auto;
+
+        .form_group {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          position: relative;
+          margin: 10px auto;
+
+          input[type="text"] {
+            width: 90%;
+            padding: 10px 3rem;
+            outline: none;
+            background: transparent;
+            border-bottom: 1px solid gray;
+            caret-color: orangered;
+            &::placeholder {
+              font-size: 0.8rem;
+            }
+            &:focus {
+              border-bottom: 1px solid royalblue;
+            }
+          }
+          img {
+            position: absolute;
+            top: 5%;
+            left: 30px;
+            width: 30px;
+            height: 30px;
+          }
+          textarea {
+            width: 90%;
+            outline: none;
+            padding: 10px 3rem;
+            // background-color: transparent;
+            border: 1px solid gray;
+            caret-color: orangered;
+            &::placeholder {
+              font-size: 0.8rem;
+            }
+            &:focus {
+              border: 1px solid royalblue;
+            }
+          }
+        }
+        .form_actions {
+          margin: 1rem auto;
+
+          button {
+            background-color: royalblue;
+            padding: 10px 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #ffffff;
+            transition: all 0.4s ease-in;
+
+            &:hover {
+              background-color: tomato;
+              transition: all 0.4s ease-in;
+            }
+          }
+        }
+      }
+    }
+    .enquiry {
+      width: 100%;
+      padding: 10px;
+      padding-bottom: 2rem;
+      border-radius: 10px;
+      // border-bottom: 3px solid rgb(158, 157, 160);
+
+      .enquiry_title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        margin: 1rem;
+        position: relative;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+        h4 {
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        &::after {
+          content: "";
+          width: 40%;
+          height: 3px;
+          background-color: gray;
+          position: absolute;
+          top: 110%;
+          border-radius: 4px;
+        }
+      }
+      .equiry_container {
+        margin: 1rem auto;
+
+        .enquiry_heading {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 14px;
+
+          h5 {
+            color: grey;
+            font-weight: 600;
+            font-size: 0.8rem;
+          }
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+        form {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          margin: auto;
+
+          .form_group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            margin: 10px auto;
+
+            input {
+              width: 90%;
+              padding: 10px 3rem;
+              outline: none;
+              background: transparent;
+              border-bottom: 1px solid gray;
+              caret-color: orangered;
+              &::placeholder {
+                font-size: 0.8rem;
+              }
+              &:focus {
+                border-bottom: 1px solid royalblue;
+              }
+            }
+            img {
+              position: absolute;
+              top: 5%;
+              left: 30px;
+              width: 30px;
+              height: 30px;
+            }
+            textarea {
+              width: 90%;
+              outline: none;
+              border: 1px solid gray;
+              padding: 10px 3rem;
+              // background-color: transparent;
+              caret-color: orangered;
+              &::placeholder {
+                font-size: 0.8rem;
+              }
+              &:focus {
+                border: 1px solid royalblue;
+              }
+            }
+          }
+          .form_actions {
+            margin: 1rem auto;
+
+            button {
+              background-color: royalblue;
+              padding: 10px 2rem;
+              font-weight: bold;
+              letter-spacing: 1px;
+              color: #ffffff;
+              transition: all 0.4s ease-in;
+
+              &:hover {
+                background-color: tomato;
+                transition: all 0.4s ease-in;
+              }
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      width: 100%;
+      padding: 10px;
+      padding-bottom: 2rem;
+      border-radius: 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        font-size: 0.8rem;
+        color: grey;
+      }
     }
     @media screen and (max-width: 900px) {
       min-width: 40%;

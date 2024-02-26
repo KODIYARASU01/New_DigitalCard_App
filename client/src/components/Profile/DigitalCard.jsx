@@ -3,7 +3,7 @@ import "./DigitalCard.scss";
 import Wave from "react-wavify";
 import banner from "../../assets/banner.jpg";
 import profile from "../../assets/profile.png";
-import testimonial from '../../assets/avatar_2.jpeg'
+import testimonial from "../../assets/avatar_2.jpeg";
 import facebook from "../../assets/Social Medias/f.gif";
 import insta from "../../assets/Social Medias/insta.gif";
 import whatsup from "../../assets/Social Medias/whatsup.gif";
@@ -22,7 +22,13 @@ import ScrollCarousel from "scroll-carousel";
 
 import gallery from "../../assets/gallery/1.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
+
+//products carosel :
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import larrow from "../../assets/Social Medias/larrow.gif";
+import rarrow from "../../assets/Social Medias/rarrow.gif";
 const DigitalCard = () => {
   function AutoWriteText() {
     const [text, setText] = useState("");
@@ -49,7 +55,35 @@ const DigitalCard = () => {
     smartSpeed: true,
     autoplay: true,
   });
-
+  const buttonStyle = {
+    width: "30px",
+    height: "30px",
+    borderRadius: "50%",
+    background: "none",
+    border: "0px",
+  };
+  const properties = {
+    prevArrow: (
+      <button style={{ ...buttonStyle }}>
+        <img
+          width="64"
+          height="64"
+          src="https://img.icons8.com/nolan/64/back.png"
+          alt="back"
+        />
+      </button>
+    ),
+    nextArrow: (
+      <button style={{ ...buttonStyle }}>
+        <img
+          width="64"
+          height="64"
+          src="https://img.icons8.com/nolan/64/forward.png"
+          alt="forward"
+        />
+      </button>
+    ),
+  };
   return (
     <>
       <div className="digitalcard_container">
@@ -68,7 +102,7 @@ const DigitalCard = () => {
               </Wave>
             </div>
             <div className="profile_image">
-              <img src={profile} alt="profile" />
+              <img src={testimonial} alt="profile" />
             </div>
 
             <div className="user_details">
@@ -286,24 +320,232 @@ const DigitalCard = () => {
           </div>
 
           <div className="testimonial_details">
-          <Carousel axis='horizontal' autoPlay='true' showArrows='true' infiniteLoop='true' className="carousel">
-                <div className="slide_1">
-                    <img src={testimonial} />
-                    <p className="name">Marial Joes</p>
-                    <small>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt dolores maiores nam quisquam magni provident labore laboriosam asperiores culpa molestiae!</small>
-                </div>
-                <div  className="slide_1">
-                    <img src={testimonial} />
-                    <p className="name">Punitha</p>
-                    <small>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt dolores maiores nam quisquam magni provident labore laboriosam asperiores culpa molestiae!</small>
-                </div>
-                <div  className="slide_1">
-                    <img src={testimonial} />
-                    <p className="name">Varsha</p>
-                    <small>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt dolores maiores nam quisquam magni provident labore laboriosam asperiores culpa molestiae!</small>
-                </div>
+            <Carousel
+              axis="horizontal"
+              autoPlay="true"
+              showArrows="true"
+              infiniteLoop="true"
+              className="carousel"
+            >
+              <div className="slide_1">
+                <img src={testimonial} />
+                <p className="name">Marial Joes</p>
+                <small>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  dolores maiores nam quisquam magni provident labore laboriosam
+                  asperiores culpa molestiae!
+                </small>
+              </div>
+              <div className="slide_1">
+                <img src={testimonial} />
+                <p className="name">Punitha</p>
+                <small>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  dolores maiores nam quisquam magni provident labore laboriosam
+                  asperiores culpa molestiae!
+                </small>
+              </div>
+              <div className="slide_1">
+                <img src={testimonial} />
+                <p className="name">Varsha</p>
+                <small>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  dolores maiores nam quisquam magni provident labore laboriosam
+                  asperiores culpa molestiae!
+                </small>
+              </div>
             </Carousel>
           </div>
+          {/* Sixth services */}
+          <div className="product_title">
+            <h4> Our Products</h4>
+          </div>
+
+          <div className="product_details">
+            <Slide {...properties}>
+              <div className="each-slide-effect">
+                <div style={{ backgroundImage: `url(${banner})` }}></div>
+                <span>Taxi Booking</span>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolores nostrum non neque, quia aut natus ex vero nobis rerum
+                  nihil!
+                </p>
+              </div>
+              <div className="each-slide-effect">
+                <div style={{ backgroundImage: `url(${banner})` }}></div>
+                <span>E-commerce portal</span>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolores nostrum non neque, quia aut natus ex vero nobis rerum
+                  nihil!
+                </p>
+              </div>
+              <div className="each-slide-effect">
+                <div style={{ backgroundImage: `url(${banner})` }}></div>
+                <span>Cloud billing software</span>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolores nostrum non neque, quia aut natus ex vero nobis rerum
+                  nihil!
+                </p>
+              </div>
+              <div className="each-slide-effect">
+                <div style={{ backgroundImage: `url(${banner})` }}></div>
+                <span>Sass CRM</span>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolores nostrum non neque, quia aut natus ex vero nobis rerum
+                  nihil!
+                </p>
+              </div>
+              <div className="each-slide-effect">
+                <div style={{ backgroundImage: `url(${banner})` }}></div>
+                <span>Job portal</span>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolores nostrum non neque, quia aut natus ex vero nobis rerum
+                  nihil!
+                </p>
+              </div>
+            </Slide>
+          </div>
+          {/* Seventh services */}
+          {/* <div className="feedback_title">
+            <h4> FeedBack</h4>
+          </div> */}
+
+          <div className="feedback_container">
+            <div className="feedback_heading">
+              <h5>Give Feedback Something About Us </h5>
+            </div>
+            <form action="">
+              <div className="form_group">
+                <input
+                  type="text"
+                  placeholder="Enter Full Name"
+                  name="name"
+                  id="name"
+                />
+                <img
+                  width="64"
+                  height="64"
+                  src="https://img.icons8.com/nolan/64/user.png"
+                  alt="user"
+                />
+              </div>
+              <div className="form_group">
+                <textarea
+                  name="msg"
+                  id="msg"
+                  cols="30"
+                  rows="4"
+                  placeholder="Tell something about us !"
+                ></textarea>
+                <img
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/fluency/48/edit-text-file.png"
+                  alt="edit-text-file"
+                />
+              </div>
+              <div className="form_actions">
+                <button type="submit">Send Feedback</button>
+              </div>
+            </form>
+          </div>
+
+                  {/* //Enquiry page */}
+
+                  <div className="enquiry">
+              <div className="enquiry_title">
+                <h4>Enquiry Form</h4>
+                <img
+                  width="64"
+                  height="64"
+                  src="https://img.icons8.com/nolan/64/questions.png"
+                  alt="questions"
+                />
+              </div>
+              <div className="equiry_container">
+                <div className="enquiry_heading">
+                  <h5> Be in Touch </h5>
+                  <img
+                    width="48"
+                    height="48"
+                    src="https://img.icons8.com/fluency/48/group-background-selected.png"
+                    alt="group-background-selected"
+                  />
+                </div>
+                <form action="">
+                  <div className="form_group">
+                    <input
+                      type="text"
+                      placeholder="Enter Full Name"
+                      name="name"
+                      id="name"
+                    />
+                    <img
+                      width="64"
+                      height="64"
+                      src="https://img.icons8.com/nolan/64/user.png"
+                      alt="user"
+                    />
+                  </div>
+                  <div className="form_group">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      name="email"
+                      id="email"
+                    />
+                    <img
+                      width="64"
+                      height="64"
+                      src="https://img.icons8.com/nolan/64/new-post.png"
+                      alt="new-post"
+                    />
+                  </div>
+                  <div className="form_group">
+                    <input
+                      type="tel"
+                      placeholder="Enter your mobile Number"
+                      name="tel"
+                      id="tel"
+                    />
+                    <img
+                      width="64"
+                      height="64"
+                      src="https://img.icons8.com/nolan/64/phone-disconnected.png"
+                      alt="phone-disconnected"
+                    />
+                  </div>
+                  <div className="form_group">
+                    <textarea
+                      name="msg"
+                      id="msg"
+                      cols="30"
+                      rows="4"
+                      placeholder="Tell something about us !"
+                    ></textarea>
+                    <img
+                      width="48"
+                      height="48"
+                      src="https://img.icons8.com/fluency/48/edit-text-file.png"
+                      alt="edit-text-file"
+                    />
+                  </div>
+                  <div className="form_actions">
+                    <button type="submit">Send Message</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+{/* Copyrights */}
+<div className="copyright">
+              <p>Copyright Reserved &copy; 2024 DigitalCard.com</p>
+            </div>
         </div>
       </div>
     </>
