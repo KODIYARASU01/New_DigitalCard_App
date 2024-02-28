@@ -21,7 +21,7 @@ export default function Login() {
       let data = { userName, password };
       setLoader(true);
       let result = await axios.post(
-        "http://localhost:3000/api/login",
+        "https://new-digitalcard-server.onrender.com/api/login",
         data
       );
 

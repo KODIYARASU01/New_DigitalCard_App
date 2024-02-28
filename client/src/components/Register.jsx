@@ -24,7 +24,7 @@ export default function Register() {
     try {
       let data = { userName, email, password, profile };
       setLoader(true);
-      let result = await axios.post("http://localhost:3000/api/register", data);
+      let result = await axios.post("https://new-digitalcard-server.onrender.com/api/register", data);
       console.log(result);
       if (result) {
         console.log("User Registerd Sucessfully" + result);

@@ -112,6 +112,8 @@ let Forms = ({
   let [TestimonialData, setTestimonialData] = useState([]);
   let [TestimonialEdit, setTestimonialEdit] = useState(false);
 
+  let url=import.meta.env.SERVER_LISTENING;
+  
   let [loader, setLoader] = useState(false);
   //Fetch while cliking edit button:
   function handleEdit1() {
@@ -120,7 +122,7 @@ let Forms = ({
     setLoader(true);
     axios
 
-      .get(`http://localhost:3000/basic_detail`, {
+      .get(`https://new-digitalcard-server.onrender.com/basic_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -147,7 +149,7 @@ let Forms = ({
     const token = localStorage.getItem("token");
     axios
 
-      .get(`http://localhost:3000/contact_detail`, {
+      .get(`https://new-digitalcard-server.onrender.com/contact_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -178,7 +180,7 @@ let Forms = ({
     const token = localStorage.getItem("token");
     axios
 
-      .get(`http://localhost:3000/service_detail`, {
+      .get(`https://new-digitalcard-server.onrender.com/service_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -201,7 +203,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:3000/product_detail`, {
+      .get(`https://new-digitalcard-server.onrender.com/product_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -226,7 +228,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:3000/gallery_detail`, {
+      .get(`https://new-digitalcard-server.onrender.com/gallery_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -249,7 +251,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:3000/socialMedia_detail`, {
+      .get(`https://new-digitalcard-server.onrender.com/socialMedia_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -275,7 +277,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:3000/testimonial_detail`, {
+      .get(`https://new-digitalcard-server.onrender.com/testimonial_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -348,7 +350,7 @@ let Forms = ({
         summary,
       };
       // Make authenticated request with bearer token
-      await axios.post("http://localhost:3000/basic_detail", data, {
+      await axios.post("https://new-digitalcard-server.onrender.com/basic_detail", data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -377,7 +379,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`http://localhost:3000/basic_detail/${BasicData._id}`, data, {
+        .put(`https://new-digitalcard-server.onrender.com/basic_detail/${BasicData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -413,7 +415,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("http://localhost:3000/contact_detail", Contactdata, {
+        .post("https://new-digitalcard-server.onrender.com/contact_detail", Contactdata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -450,7 +452,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`http://localhost:3000/contact_detail/${ContactData._id}`, data, {
+        .put(`https://new-digitalcard-server.onrender.com/contact_detail/${ContactData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -484,7 +486,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("http://localhost:3000/service_detail", Servicedata, {
+        .post("https://new-digitalcard-server.onrender.com/service_detail", Servicedata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -518,7 +520,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`http://localhost:3000/service_detail/${ServiceData._id}`, data, {
+        .put(`https://new-digitalcard-server.onrender.com/service_detail/${ServiceData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -552,7 +554,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("http://localhost:3000/product_detail", Productdata, {
+        .post("https://new-digitalcard-server.onrender.com/product_detail", Productdata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -587,7 +589,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`http://localhost:3000/product_detail/${ProductData._id}`, data, {
+        .put(`https://new-digitalcard-server.onrender.com/product_detail/${ProductData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -619,7 +621,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("http://localhost:3000/gallery_detail", Gallerydata, {
+        .post("https://new-digitalcard-server.onrender.com/gallery_detail", Gallerydata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -653,7 +655,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`http://localhost:3000/gallery_detail/${GalleryData._id}`, data, {
+        .put(`https://new-digitalcard-server.onrender.com/gallery_detail/${GalleryData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -690,7 +692,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("http://localhost:3000/socialMedia_detail", SocialMediadata, {
+        .post("https://new-digitalcard-server.onrender.com/socialMedia_detail", SocialMediadata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -727,7 +729,7 @@ let Forms = ({
       // Make authenticated request with bearer token
       await axios
         .put(
-          `http://localhost:3000/socialMedia_detail/${SocialMediaData._id}`,
+          `https://new-digitalcard-server.onrender.com/socialMedia_detail/${SocialMediaData._id}`,
           data,
           {
             headers: {
@@ -764,7 +766,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("http://localhost:3000/testimonial_detail", SocialMediadata, {
+        .post("https://new-digitalcard-server.onrender.com/testimonial_detail", SocialMediadata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -799,7 +801,7 @@ let Forms = ({
       // Make authenticated request with bearer token
       await axios
         .put(
-          `http://localhost:3000/testimonial_detail/${TestimonialData._id}`,
+          `https://new-digitalcard-server.onrender.com/testimonial_detail/${TestimonialData._id}`,
           data,
           {
             headers: {
