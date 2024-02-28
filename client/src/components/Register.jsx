@@ -3,10 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import avator from "../assets/profile.png";
 import company from "../assets/aristostech.jpg";
 import { useState } from "react";
-// import { registerValidate } from "./helper/registerValidate";
+import { registerValidate } from "./helper/registerValidate";
 // import useFormik from "formik";
-import { convertToBase64 } from "../helper/convert.js";
+import { convertToBase64 } from "./helper/convert.js";
 import axios from "axios";
+import { Audio } from 'react-loader-spinner'
 export default function Register() {
   let navigate = useNavigate();
   //Image store state :
@@ -14,7 +15,7 @@ export default function Register() {
   let [userName, setUserName] = useState();
   let [email, setEmail] = useState();
   let [password, setPassword] = useState();
-
+  let [loader, setLoader] = useState(false);
   let handleRegister = async (e) => {
     e.preventDefault();
 
@@ -22,19 +23,24 @@ export default function Register() {
 
     try {
       let data = { userName, email, password, profile };
+      setLoader(true);
       let result = await axios.post(
-        "https://digital-card-mern-app-server.onrender.com/api/register",
+        "http://localhost:3000/api/register",
         data
       );
       console.log(result);
       if (result) {
         console.log("User Registerd Sucessfully" + result);
+        alert('Sucess Register');
+        setLoader(false)
         navigate("/");
       } else {
         navigate("/register");
+        setLoader(false);
       }
     } catch (error) {
-      return console.log("User not registered" + error.message);
+      alert("User Already Exist " +error.message)
+ console.log("User not registered" + error.message);
     }
   };
   // //Formik for form validation:
@@ -70,6 +76,15 @@ export default function Register() {
 
   return (
     <div className="user_container">
+    <Audio
+  height="80"
+  width="80"
+  radius="9"
+  color="green"
+  ariaLabel="loading"
+  wrapperStyle
+  wrapperClass
+/>
       <div className="user_header">
         <h3 className="text-center">Welcome to Digital Card Creator!</h3>
         <p className="text-center">

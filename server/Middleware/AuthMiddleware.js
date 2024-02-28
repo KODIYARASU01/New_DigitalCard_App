@@ -1,5 +1,5 @@
 import User from "../models/User.model.js";
-import About from "../models/About.model.js";
+// import About from "../models/About.model.js";
 import jwt from "jsonwebtoken";
 export const auth = async (req, res, next) => {
   let token;

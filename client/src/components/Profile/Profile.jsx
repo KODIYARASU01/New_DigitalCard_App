@@ -3,9 +3,9 @@ import "./Profile.scss";
 import Sidebar from "./Sidebar";
 import Forms from "./Forms";
 
+
 const UserProfile = () => {
   let [slideClose, setSlideShow] = useState(false);
-
   let [basicForm, setBasicForm] = useState(true);
   let [contactForm, setContactForm] = useState(false);
   let [serviceForm, setServiceForm] = useState(false);
@@ -14,11 +14,58 @@ const UserProfile = () => {
   let [socialMediaForm, setSocialMediaForm] = useState(false);
   let [testimonialForm, setTestimonialForm] = useState(false);
 
+    //Basic Detail form states:
+let[banner,setBanner]=useState();
+let[logo,setLogo]=useState();
+let[fullName,setFullName]=useState();
+let[profession,setProfession]=useState();
+let[summary,setSummary]=useState();
+
+//Contact Detail form States:
+
+let[Email,setEmail]=useState();
+let[AlternateEmail,setAlternateEmail]=useState();
+let[MobileNumber,setMobileNumber]=useState();
+let[AlternateMobileNumber,setAlternateMobileNumber]=useState();
+let[DOB,setDOB]=useState(new Date());
+let[Address,setAddress]=useState();
+
+//Service etail form states:
+
+let[serviceImage,setServiceImage]=useState();
+let[serviceTitle,setServiceTitle]=useState();
+let[serviceSummary,setServiceSummary]=useState();
+
+//Product detail form states:
+let[productImage,setProductImage]=useState();
+let[productTitle,setProductTitle]=useState();
+let[productReleaseDate,setProductReleaseDate]=useState();
+let[productSummary,setProductSummary]=useState();
+
+//Gallery:
+let[galleryImage,setGalleryImage]=useState();
+let [videoURL,setVideoURL]=useState();
+
+//SOcialMedia :
+
+let[Facebook,setFacebook]=useState();
+let[LinkedIn,setLinkedIn]=useState();
+let[WhatsUp,setWhatsUp]=useState();
+let[Instagram,setInstagram]=useState();
+let[Twiter,setTwiter]=useState();
+
+//Testimonial:
+let[clientImage,setClientImage]=useState();
+let[clientName,setClientName]=useState();
+let[clientFeedbackDate,setClientFeedbackDate]=useState();
+let[clientFeedback,setClientFeedback]=useState();
+
   return (
     <div>
       <>
         <div className="profile_container">
           <Sidebar
+          className='sidebar'
             slideClose={slideClose}
             setSlideShow={setSlideShow}
             basicForm={basicForm}
@@ -35,8 +82,10 @@ const UserProfile = () => {
             setGalleryForm={setGalleryForm}
             setSocialMediaForm={setSocialMediaForm}
             setTestimonialForm={setTestimonialForm}
+         
           />
           <Forms
+          className='forms'
             slideClose={slideClose}
             setSlideShow={setSlideShow}
             basicForm={basicForm}
@@ -53,7 +102,79 @@ const UserProfile = () => {
             setGalleryForm={setGalleryForm}
             setSocialMediaForm={setSocialMediaForm}
             setTestimonialForm={setTestimonialForm}
+            banner={banner}
+            logo={logo}
+            fullName={fullName}
+            profession={profession}
+            summary={summary}
+            setBanner={setBanner}
+            setLogo={setLogo}
+            setFullName={setFullName}
+            setProfession={setProfession}
+            setSummary={setSummary}
+            //contact
+            Email={Email}
+            AlternateEmail={AlternateEmail}
+            MobileNumber={MobileNumber}
+            AlternateMobileNumber={AlternateMobileNumber}
+            DOB={DOB}
+            Address={Address}
+            setEmail={setEmail}
+            setAlternateEmail={setAlternateEmail}
+            setMobileNumber={setMobileNumber}
+            setAlternateMobileNumber={setAlternateMobileNumber}
+            setDOB={setDOB}
+            setAddress={setAddress}
+            //Service
+            serviceImage={serviceImage}
+            serviceTitle={serviceTitle}
+            serviceSummary={serviceSummary}
+            setServiceImage={setServiceImage}
+            setServiceTitle={setServiceTitle}
+            setServiceSummary={setServiceSummary}
+
+            //Product:
+             productImage={productImage}
+             productTitle={productTitle}
+             productReleaseDate={productReleaseDate}
+             productSummary={productSummary}
+             setProductImage={setProductImage}
+             setProductTitle={setProductTitle}
+             setProductReleaseDate={setProductReleaseDate}
+             setProductSummary={setProductSummary}
+
+             //Gallery
+             galleryImage={galleryImage}
+             videoURL={videoURL}
+             setGalleryImage={setGalleryImage}
+             setVideoURL={setVideoURL}
+
+             //Social Media:
+
+             Facebook={Facebook}
+             LinkedIn={LinkedIn}
+             WhatsUp={WhatsUp}
+             Instagram={Instagram}
+             Twiter={Twiter}
+             setFacebook={setFacebook}
+             setLinkedIn={setLinkedIn}
+             setWhatsUp={setWhatsUp}
+             setInstagram={setInstagram}
+             setTwiter={setTwiter}
+
+             //Testimonial
+
+             clientImage={clientImage}
+             clientName={clientName}
+             clientFeedbackDate={clientFeedbackDate}
+             clientFeedback={clientFeedback}
+             setClientImage={setClientImage}
+             setClientName={setClientName}
+             setClientFeedbackDate={setClientFeedbackDate}
+             setClientFeedback={setClientFeedback}
           />
+
+          
         </div>
       </>
     </div>

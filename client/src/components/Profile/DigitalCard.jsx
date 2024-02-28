@@ -28,6 +28,8 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import '../../../node_modules/scroll-carousel/dist/scroll.carousel.min.css';
 const DigitalCard = () => {
+
+
   function AutoWriteText() {
     const [text, setText] = useState("");
     const words = [

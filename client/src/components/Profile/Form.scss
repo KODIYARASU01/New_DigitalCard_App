@@ -10,12 +10,13 @@
   .Form1_container {
     position: absolute;
     left: 0%;
+    min-width: 80%;
     width: 80%;
     min-height: 90%;
     margin: 10px;
     // background-color: aqua;
     padding: 1rem 0.2rem;
-
+    transition: all 0.5s linear;
     .Form_title {
       font-weight: bold;
 
@@ -45,7 +46,28 @@
       //   grid-template-columns: 1fr 1fr 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+      position: relative;
 
+      .edit_form{
+        position: absolute;
+        right: 5%;
+        top:3%;
+        z-index: 600;
+
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         // margin: auto;
@@ -120,16 +142,17 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
           caret-color: royalblue;
           &::placeholder {
             font-size: 0.7rem;
+            color:gray;
           }
           &:focus {
-            border: 1px solid royalblue;
+            border: 1px solid rgb(92, 133, 245);
           }
         }
       }
@@ -173,6 +196,7 @@
   .Form2_container {
     position: absolute;
     left: 0%;
+    min-width: 80%;
     width: 80%;
     min-height: 90%;
     margin: 10px;
@@ -208,7 +232,26 @@
       //   grid-template-columns: 1fr 1fr 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+      .edit_form{
+        position: absolute;
+        right: 10%;
+        top:8%;
+        z-index: 600;
 
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         display: flex;
@@ -238,7 +281,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -255,7 +298,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin-top: 1rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -308,6 +351,7 @@
   .Form3_container {
     position: absolute;
     left: 0%;
+    min-width: 80%;
     width: 80%;
     min-height: 90%;
     margin: 10px;
@@ -343,7 +387,26 @@
       //   grid-template-columns: 1fr 1fr 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+      .edit_form{
+        position: absolute;
+        right: 10%;
+        top:8%;
+        z-index: 600;
 
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         // margin: auto;
@@ -399,7 +462,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -450,6 +513,7 @@
   .Form4_container {
     position: absolute;
     left: 0%;
+    min-width: 80%;
     width: 80%;
     min-height: 90%;
     margin: 10px;
@@ -485,7 +549,26 @@
       //   grid-template-columns: 1fr 1fr 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+      .edit_form{
+        position: absolute;
+        right: 10%;
+        top:8%;
+        z-index: 600;
 
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         // margin: auto;
@@ -541,7 +624,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -592,6 +675,7 @@
   .Form5_container {
     position: absolute;
     left: 0%;
+    min-width: 80%;
     width: 80%;
     min-height: 90%;
     margin: 10px;
@@ -627,7 +711,26 @@
       //   grid-template-columns: 1fr 1fr 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+      .edit_form{
+        position: absolute;
+        right: 10%;
+        top:8%;
+        z-index: 600;
 
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         // margin: auto;
@@ -683,7 +786,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -735,6 +838,7 @@
     position: absolute;
     top: 50%;
     left: 0%;
+    min-width: 80%;
     width: 80%;
     min-height: 90%;
     margin: 10px;
@@ -770,7 +874,26 @@
       //   grid-template-columns: 1fr 1fr 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+   .edit_form{
+        position: absolute;
+        right: 10%;
+        top:8%;
+        z-index: 600;
 
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         // margin: auto;
@@ -825,7 +948,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -877,6 +1000,7 @@
     position: absolute;
     top: 0%;
     left: 0%;
+    min-width: 60%;
     width: 60%;
     min-height: 90%;
     margin: 10px;
@@ -912,7 +1036,26 @@
       grid-template-columns: 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+      .edit_form{
+        position: absolute;
+        right: 6%;
+        top:8%;
+        z-index: 600;
 
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         // margin: auto;
@@ -946,7 +1089,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -998,6 +1141,7 @@
   .Form8_container {
     position: absolute;
     left: 0%;
+    min-width: 80%;
     width: 80%;
     min-height: 90%;
     margin: 10px;
@@ -1033,7 +1177,26 @@
       //   grid-template-columns: 1fr 1fr 1fr;
       grid-row-gap: 10px;
       grid-column-gap: 15px;
+      .edit_form{
+        position: absolute;
+        right: 6%;
+        top:8%;
+        z-index: 600;
 
+        img{
+          cursor: pointer !important;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 5px;
+          transition: all 0.4s ease-in-out;
+
+          &:hover{
+            box-shadow: 0px 4px 5px rgba(0,0,0,0.4);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
       .form_group {
         width: 98%;
         // margin: auto;
@@ -1089,7 +1252,7 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: aliceblue;
+          background-color: rgb(173, 255, 162);
           margin-top: 1rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
@@ -1153,10 +1316,21 @@
   }
 }
 
-@media screen and (min-width: 900px) {
+
   #Formclose {
     width: 95vw;
     height: 90vh;
     margin: auto;
   }
+
+
+#Form1close{
+  min-width: 65%;
+  width: 65%;
+  transition: all 0.5s linear;
+}
+#Form7close{
+  min-width: 50%;
+  width: 50%;
+  transition: all 0.5s linear;
 }

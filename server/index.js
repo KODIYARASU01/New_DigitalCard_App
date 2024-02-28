@@ -3,6 +3,19 @@ import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 import mongoose from "mongoose";
+let app = express();
+app.use(cors());
+app.use(express.json());
+let PORT = process.env.PORT || 3000;
+let uri = process.env.MONGODB_URI;
+
+import BasicDetailRoute from './Routes/BasicDetail.router.js';
+import ContactDetailRoute from './Routes/ContactDetail.route.js';
+import ServiceDetailRoute from './Routes/ServiceDetails.route.js';
+import ProductDetailRoute from './Routes/ProductDetail.route.js';
+import GalleryDetailRoute from './Routes/GalleryDetail.route.js';
+import SocialMediaDetailRoute from './Routes/SocialMedia.route.js'
+import TestimonialDetailRoute from './Routes/TestimonialDetail.route.js';
 import {
   userRegisterRoute,
   userLoginRoute,
@@ -10,73 +23,18 @@ import {
   adminDashboard,
 } from "./Routes/User.router.js";
 
-import {
-  adminGetRoute,
-  adminPostRoute,
-  adminUpdateRoute,
-  adminDeleteRoute,
-  aboutGetRoute,
-  aboutPostRoute,
-  aboutUpdateRoute,
-  aboutDeleteRoute,
-  serviceGetRoute,
-  servicePostRoute,
-  serviceUpdateRoute,
-  serviceDeleteRoute,
-  paymentGetRoute,
-  paymentPostRoute,
-  paymentUpdateRoute,
-  paymentDeleteRoute,
-  galleryGetRoute,
-  galleryPostRoute,
-  galleryPutRoute,
-  galleryDeleteRoute,
-} from "./Routes/Admin.route.js";
-let app = express();
-app.use(cors());
-app.use(express.json());
-let PORT = process.env.PORT || 3000;
-let uri = process.env.MONGODB_URI;
-//Middleware:
+//Routes Initialize:
 
-app.use("/api", userRegisterRoute);
-app.use("/api", userLoginRoute);
-app.use("api", loginUserDataRoute);
-app.use("/api", adminDashboard);
-app.use("/api", adminGetRoute);
-app.use("/api", adminPostRoute);
-app.use("/api", adminUpdateRoute);
-app.use("/api", adminDeleteRoute);
-
-//About:
-app.use("/api", aboutGetRoute);
-app.use("/api", aboutPostRoute);
-app.use("/api", aboutUpdateRoute);
-app.use("/api", aboutDeleteRoute);
-//Services:
-app.use("/api", serviceGetRoute);
-app.use("/api", servicePostRoute);
-app.use("/api", serviceUpdateRoute);
-app.use("/api", serviceDeleteRoute);
-
-//Payment:
-app.use("/api", paymentGetRoute);
-app.use("/api", paymentPostRoute);
-app.use("/api", paymentUpdateRoute);
-app.use("/api", paymentDeleteRoute);
-app.get("/", (req, res) => {
-  res.send("Hello,Server is running");
-});
-
-//Gallery:
-app.use("/api", galleryGetRoute);
-app.use("/api", galleryPostRoute);
-app.use("/api", galleryPutRoute);
-app.use("/api", galleryDeleteRoute);
-app.get("/", (req, res) => {
-  res.send("Hello,Server is running");
-});
-
+app.use('/api',userRegisterRoute);
+app.use('/api',userLoginRoute);
+app.use('/api',loginUserDataRoute);
+app.use('/basic_detail',BasicDetailRoute);
+app.use('/contact_detail',ContactDetailRoute);
+app.use('/service_detail',ServiceDetailRoute);
+app.use('/product_detail',ProductDetailRoute);
+app.use('/gallery_detail',GalleryDetailRoute);
+app.use('/socialMedia_detail',SocialMediaDetailRoute);
+app.use('/testimonial_detail',TestimonialDetailRoute)
 mongoose.set("strictQuery", false);
 mongoose
   .connect(uri)

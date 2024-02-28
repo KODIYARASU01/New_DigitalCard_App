@@ -4,7 +4,6 @@ import avator from "../assets/LOGO.png";
 import company from "../assets/aristostech.jpg";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import svg from "../assets/svg/6.svg";
 import Loader from "../components/Loader.jsx";
 
@@ -22,7 +21,7 @@ export default function Login() {
       let data = { userName, password };
       setLoader(true);
       let result = await axios.post(
-        "https://digital-card-mern-app-server.onrender.com/api/login",
+        "http://localhost:3000/api/login",
         data
       );
 
@@ -31,12 +30,13 @@ export default function Login() {
       console.log(token);
       // Store the token in local storage
       localStorage.setItem("token", token);
-      navigate("/admin");
+      navigate("/user_admin");
       setUserName("");
       setpassword("");
       setLoader(false);
     } catch (error) {
       console.log("User not login" + error.message);
+      alert("User not Registered" + error.message)
       setLoader(false);
       navigate("/");
     }
@@ -45,9 +45,9 @@ export default function Login() {
   return (
     <div className="user_container">
       {loader ? <Loader /> : " "}
-      <div className="svg">
+      {/* <div className="svg">
         <img src={svg} alt="svg" />
-      </div>
+      </div> */}
       <div className="user_header">
         <h3 className="text-center">Welcome to Digital Card Creator!</h3>
         <p className="text-center">

@@ -50,7 +50,7 @@ const Sidebar = ({
         <div className="sidebar_lists">
           <div
             className="list"
-            id={basicForm === true ? 'selected':'unSelected'}
+            id={basicForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(true),
                 setContactForm(false),
@@ -81,7 +81,7 @@ const Sidebar = ({
           </div> */}
           <div
             className="list"
-            id={contactForm === true ? 'selected':'unSelected'}
+            id={contactForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(false),
                 setContactForm(true),
@@ -104,7 +104,7 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={serviceForm === true ? 'selected':'unSelected'}
+            id={serviceForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -127,7 +127,7 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={productForm === true ? 'selected':'unSelected'}
+            id={productForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -151,7 +151,7 @@ const Sidebar = ({
 
           <div
             className="list"
-            id={galleryForm === true ? 'selected':'unSelected'}
+            id={galleryForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -174,7 +174,7 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={socialMediaForm === true ? 'selected':'unSelected'}
+            id={socialMediaForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -197,7 +197,7 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={testimonialForm === true ? 'selected':'unSelected'}
+            id={testimonialForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -220,7 +220,7 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            // id={basicForm === true ? 'selected':'unSelected'}
+            // id={basicForm === true && slideClose === false ? 'selected':'unSelected'}
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),

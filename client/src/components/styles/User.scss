@@ -1,7 +1,7 @@
 .user_container {
   width: 100dvw;
   height: 100dvh;
-  background-image: url("/src/assets/17973908.jpg");
+  background-image: url("../../assets/Background/2.jpg");
   //   background: #dcdce6;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@
       justify-content: center;
       margin: auto;
       font-size: 2rem;
-      color: #4f71e0;
+      color: #ffffff;
       font-weight: 600;
       letter-spacing: 1px;
       @media screen and (max-width: 900px) {
@@ -84,10 +84,10 @@
     min-width: 28%;
     min-height: 70%;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.33);
-    box-shadow: 0 8px 32px rgba(0, 0, 255, 0.35);
-    backdrop-filter: blur(3px);
-    // background: linear-gradient(#f7ce68, #fbab7e);
+    // background: rgba(255, 255, 255, 0.33);
+    // box-shadow: 0 8px 32px rgba(0, 0, 255, 0.35);
+    // backdrop-filter: blur(3px);
+    background: linear-gradient(#ffffff, #ffffff);
     margin: 10px;
     border-radius: 1rem;
 
