@@ -10,6 +10,7 @@ import whatsup from "../../assets/Social Medias/whatsup.gif";
 import twiter from "../../assets/Social Medias/twiter.gif";
 import insta from "../../assets/Social Medias/insta.gif";
 import clientProfile from "../../assets/avatar_2.jpeg";
+import Loader from "../Loader.jsx";
 import {
   convertToBase64Basic,
   convertBannerImageToBase64,
@@ -110,11 +111,15 @@ let Forms = ({
   let [SocialMediaEdit, setSocialMediaEdit] = useState(false);
   let [TestimonialData, setTestimonialData] = useState([]);
   let [TestimonialEdit, setTestimonialEdit] = useState(false);
+
+  let [loader, setLoader] = useState(false);
   //Fetch while cliking edit button:
   function handleEdit1() {
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
+    setLoader(true);
     axios
+
       .get(`http://localhost:3000/basic_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -128,16 +133,20 @@ let Forms = ({
         setSummary(res.data.result[0].summary);
         setBasicData(res.data.result[0]);
         setBasicEdit(true);
+        setLoader(false);
       })
       .catch((err) => {
-        err;
+        alert(err.message);
+        setLoader(false);
       });
   }
   //Fetch while cliking Contact Button:
   function handleEdit2() {
+    setLoader(true);
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
+
       .get(`http://localhost:3000/contact_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -155,16 +164,20 @@ let Forms = ({
         setAddress(res.data.getContactDetail[0].Address);
         setContactData(res.data.getContactDetail[0]);
         setContactEdit(true);
+        setLoader(false);
       })
       .catch((err) => {
-        err;
+        alert(err.message);
+        setLoader(false);
       });
   }
   //Fetch while cliking Service Button:
   function handleEdit3() {
+    setLoader(false);
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
+
       .get(`http://localhost:3000/service_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -178,11 +191,13 @@ let Forms = ({
         setServiceEdit(true);
       })
       .catch((err) => {
-        err;
+        alert(err.message)
+        setLoader(false)
       });
   }
   //Fetch while cliking Product Button:
   function handleEdit4() {
+    setLoader(true)
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
@@ -198,13 +213,16 @@ let Forms = ({
         setProductSummary(res.data.getProductDetail[0].productSummary);
         setProductData(res.data.getProductDetail[0]);
         setProductEdit(true);
+        setLoader(false)
       })
       .catch((err) => {
-        err;
+    alert(err.message)
+    setLoader(false)
       });
   }
   //Fetch while cliking Gallery Button:
   function handleEdit5() {
+    setLoader(true)
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
@@ -218,15 +236,18 @@ let Forms = ({
         setVideoURL(res.data.getGalleryDetail[0].videoURL);
         setGalleryData(res.data.getGalleryDetail[0]);
         setGalleryEdit(true);
+        setLoader(false)
       })
       .catch((err) => {
-        err;
+     alert(err.message)
+     setLoader(false)
       });
   }
   //Fetch while cliking SocialMedia Button:
   function handleEdit6() {
-        // Retrieve token from local storage or wherever it's stored
-        const token = localStorage.getItem("token");
+    setLoader(false)
+    // Retrieve token from local storage or wherever it's stored
+    const token = localStorage.getItem("token");
     axios
       .get(`http://localhost:3000/socialMedia_detail`, {
         headers: {
@@ -241,17 +262,20 @@ let Forms = ({
         setTwiter(res.data.getSocialMediaDetail[0].Twiter);
         setSocialMediaData(res.data.getSocialMediaDetail[0]);
         setSocialMediaEdit(true);
+        setLoader(false)
       })
       .catch((err) => {
-        err;
+        alert(err.message)
+        setLoader(false)
       });
   }
   //Fetch while cliking Product Button:
   function handleEdit7() {
-            // Retrieve token from local storage or wherever it's stored
-            const token = localStorage.getItem("token");
+    setLoader(true)
+    // Retrieve token from local storage or wherever it's stored
+    const token = localStorage.getItem("token");
     axios
-      .get(`http://localhost:3000/testimonial_detail`,{
+      .get(`http://localhost:3000/testimonial_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -265,9 +289,11 @@ let Forms = ({
         setClientFeedback(res.data.getTestimonialDetail[0].clientFeedback);
         setTestimonialData(res.data.getTestimonialDetail[0]);
         setTestimonialEdit(true);
+        setLoader(false)
       })
       .catch((err) => {
-        err;
+     alert(err.message)
+     setLoader(false)
       });
   }
   //Formik does not support file upload so we could create handler :
@@ -311,6 +337,7 @@ let Forms = ({
   async function handleBasicFormSubmit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -327,15 +354,18 @@ let Forms = ({
         },
       });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   //Home form Edit:
   async function handleBasicFormEdit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -359,15 +389,18 @@ let Forms = ({
           alert("Something error" + err.message);
         });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   //Contact form submit:
   async function handleContactFormSubmit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let Contactdata = {
@@ -388,19 +421,23 @@ let Forms = ({
         .then((res) => {
           console.log(res);
           alert("Form Submited Sucessfully");
+          setLoader(false)
         })
         .catch((error) => {
           alert("Data posting error" + error.message);
+          setLoader(false)
         });
     } catch (error) {
       // Handle errors
       alert("Something Error" + error.message);
+      setLoader(false)
     }
   }
   //Contact form Edit:
   async function handleContactFormEdit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -423,17 +460,21 @@ let Forms = ({
         })
         .catch((err) => {
           alert("Something error" + err.message);
+          setLoader(false)
         });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   //Service form submit:
   async function handleServiceFormSubmit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let Servicedata = {
@@ -451,19 +492,23 @@ let Forms = ({
         .then((res) => {
           console.log(res);
           alert("Form Submited Sucessfully");
+          setLoader(false)
         })
         .catch((error) => {
           alert("Data posting error" + error.message);
+          setLoader(false)
         });
     } catch (error) {
       // Handle errors
       alert("Something Error" + error.message);
+      setLoader(false)
     }
   }
   //Service form Edit:
   async function handleServiceFormEdit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -485,15 +530,18 @@ let Forms = ({
           alert("Something error" + err.message);
         });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   //Product form submit:
   async function handleProductFormSubmit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let Productdata = {
@@ -512,19 +560,23 @@ let Forms = ({
         .then((res) => {
           console.log(res);
           alert("Form Submited Sucessfully");
+          setLoader(false)
         })
         .catch((error) => {
           alert("Data posting error" + error.message);
+          setLoader(false)
         });
     } catch (error) {
       // Handle errors
       alert("Something Error" + error.message);
+      setLoader(false)
     }
   }
   //Product form Edit:
   async function handleProductEdit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -547,15 +599,18 @@ let Forms = ({
           alert("Something error" + err.message);
         });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   //Gallery form submit:
   async function handleGalleryFormSubmit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let Gallerydata = {
@@ -572,19 +627,24 @@ let Forms = ({
         .then((res) => {
           console.log(res);
           alert("Form Submited Sucessfully");
+          setLoader(false)
         })
         .catch((error) => {
           alert("Data posting error" + error.message);
+          setLoader(false)
         });
+        setLoader(false);
     } catch (error) {
       // Handle errors
       alert("Something Error" + error.message);
+      setLoader(false)
     }
   }
   //Gallery form Edit:
   async function handleGalleryEdit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -600,20 +660,25 @@ let Forms = ({
         })
         .then((res) => {
           console.log(res.data);
+          setLoader(false)
         })
         .catch((err) => {
           alert("Something error" + err.message);
+          setLoader(false)
         });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   //SocialMedia form submit:
   async function handleSocialMediaFormSubmit(e) {
     e.preventDefault();
     try {
+      setLoader(false)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let SocialMediadata = {
@@ -633,19 +698,23 @@ let Forms = ({
         .then((res) => {
           console.log(res);
           alert("Form Submited Sucessfully");
+          setLoader(false)
         })
         .catch((error) => {
           alert("Data posting error" + error.message);
         });
+        setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error" + error.message);
+      setLoader(false)
     }
   }
   //SocialMedia form Edit:
   async function handleSocialMediaFormEdit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -673,15 +742,18 @@ let Forms = ({
           alert("Something error" + err.message);
         });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   //Testimonial form submit:
   async function handleTestimonialFormSubmit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let SocialMediadata = {
@@ -704,15 +776,18 @@ let Forms = ({
         .catch((error) => {
           alert("Data posting error" + error.message);
         });
+        setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error" + error.message);
+      setLoader(false)
     }
   }
   //Testimonial form Edit:
   async function handleTestimonialEdit(e) {
     e.preventDefault();
     try {
+      setLoader(true)
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
       let data = {
@@ -735,13 +810,17 @@ let Forms = ({
         .then((res) => {
           console.log(res.data);
         })
+        setLoader(false)
         .catch((err) => {
           alert("Something error" + err.message);
+          setLoader(false)
         });
       alert("Form Submited Sucessfully");
+      setLoader(false)
     } catch (error) {
       // Handle errors
       alert("Something Error");
+      setLoader(false)
     }
   }
   return (
@@ -750,6 +829,7 @@ let Forms = ({
         className="forms_container"
         id={slideClose ? "Formclose" : "Formopen"}
       >
+        <div className="loader_container">{loader ? <Loader /> : ""}</div>
         {/* //Form 1 Basic Details */}
         {basicForm === true ? (
           <div

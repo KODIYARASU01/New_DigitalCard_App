@@ -1,6 +1,6 @@
 .user_container {
   width: 100dvw;
-  height: 100dvh;
+  height: 100vh;
   background-image: url("../../assets/Background/2.jpg");
   //   background: #dcdce6;
   background-position: center;
@@ -12,23 +12,37 @@
   align-items: center;
   justify-content: flex-start;
   padding-top: 1rem;
-
   overflow: hidden;
 
-  .svg {
+  .loader_anime{
+ z-index: 700;
     position: absolute;
-    top: 15%;
-    right: 5%;
+    top: 30%;
+    left: 20%;
+    transform: translate(-20%,-30%);
+    width: 30px;
 
-    img {
-      @media screen and (max-width: 1050px) {
-        width: 200px;
+    .loader {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-block;
+      border-top: 3px solid #FFF;
+      border-right: 3px solid transparent;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+    }
+    
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
       }
-    }
-    @media screen and (max-width: 900px) {
-      display: none;
-    }
+      100% {
+        transform: rotate(360deg);
+      }
+    } 
   }
+
   .user_header {
     // position: absolute;
     // top: 30%;

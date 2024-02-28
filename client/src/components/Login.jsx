@@ -44,7 +44,9 @@ export default function Login() {
 
   return (
     <div className="user_container">
-      {loader ? <Loader /> : " "}
+         <div className="loader_anime">
+        {loader ? <span className="loader"></span> : ""}
+      </div>
       {/* <div className="svg">
         <img src={svg} alt="svg" />
       </div> */}

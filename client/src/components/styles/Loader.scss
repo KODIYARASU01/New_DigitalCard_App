@@ -1,44 +1,73 @@
 .loader_container {
-  width: 100vw;
-  height: 100vh;
+
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -70%);
+  top: 20%;
+  left: 70%;
+  transform: translate(-70%, -20%);
   z-index: 800;
 }
 .loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  border-top: 4px solid #5df189;
-  border-right: 4px solid transparent;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
 }
-.loader::after {
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
   content: "";
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border-left: 4px solid #ff3d00;
-  border-bottom: 4px solid transparent;
-  animation: rotation 0.5s linear infinite reverse;
+  display: block;
+  height: 20px;
+  width: 20px;
 }
-@keyframes rotation {
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: #69fa95;
+  box-shadow: 30px 0 0 #ff3d00;
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: #ff3d00;
+  box-shadow: 30px 0 0 #ffffff;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(0.8) }
+  50% { transform: rotate(360deg) scale(1.2) }
+  100% { transform: rotate(720deg) scale(0.8) }
+}
+
+@keyframes ball1 {
   0% {
-    transform: rotate(0deg);
+    box-shadow: 30px 0 0 #ff3d00;
+  }
+  50% {
+    box-shadow: 0 0 0 #ff3d00;
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
   }
   100% {
-    transform: rotate(360deg);
+    box-shadow: 30px 0 0 #ff3d00;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #fff;
+    margin-top: 0;
   }
 }

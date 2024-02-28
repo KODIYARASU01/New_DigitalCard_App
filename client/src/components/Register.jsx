@@ -7,7 +7,7 @@ import { registerValidate } from "./helper/registerValidate";
 // import useFormik from "formik";
 import { convertToBase64 } from "./helper/convert.js";
 import axios from "axios";
-import { Audio } from 'react-loader-spinner'
+import { Audio } from "react-loader-spinner";
 export default function Register() {
   let navigate = useNavigate();
   //Image store state :
@@ -24,23 +24,20 @@ export default function Register() {
     try {
       let data = { userName, email, password, profile };
       setLoader(true);
-      let result = await axios.post(
-        "http://localhost:3000/api/register",
-        data
-      );
+      let result = await axios.post("http://localhost:3000/api/register", data);
       console.log(result);
       if (result) {
         console.log("User Registerd Sucessfully" + result);
-        alert('Sucess Register');
-        setLoader(false)
+        setLoader(false);
         navigate("/");
       } else {
         navigate("/register");
         setLoader(false);
       }
     } catch (error) {
-      alert("User Already Exist " +error.message)
- console.log("User not registered" + error.message);
+      setLoader(false);
+      alert("Something Error " + error.message);
+      console.log("User not registered" + error.message);
     }
   };
   // //Formik for form validation:
@@ -76,15 +73,10 @@ export default function Register() {
 
   return (
     <div className="user_container">
-    <Audio
-  height="80"
-  width="80"
-  radius="9"
-  color="green"
-  ariaLabel="loading"
-  wrapperStyle
-  wrapperClass
-/>
+      <div className="loader_anime">
+        {loader ? <span className="loader"></span> : ""}
+      </div>
+
       <div className="user_header">
         <h3 className="text-center">Welcome to Digital Card Creator!</h3>
         <p className="text-center">
