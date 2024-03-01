@@ -121,7 +121,7 @@ const DigitalCard2 = () => {
           {/* First */}
           <m.div
             className="basic_details"
-            variants={basic_anime}
+        
             initial="hide"
             whileInView="show"
           >
@@ -143,7 +143,7 @@ const DigitalCard2 = () => {
             </m.div>
 
             <m.div className="user_details">
-              <m.h3 variants={basic_anime}>
+              <m.h3 >
                 AristosTech India Private Limited
               </m.h3>
               <Marquee
