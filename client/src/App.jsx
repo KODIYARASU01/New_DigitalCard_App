@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import UserProfile from "./components/Profile/Profile";
 import Sidebar from "./components/Profile/Sidebar";
 import DigitalCard from "./components/Profile/DigitalCard";
+import DigitalCard2 from "./components/Profile/DigitalCard2";
 let router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +48,10 @@ let router = createBrowserRouter([
   {
     path: "/digitalCard",
     element: <DigitalCard />,
+  },
+  {
+    path: "/digitalCard2",
+    element: <DigitalCard2 />,
   }
 ]);
 const App = () => {

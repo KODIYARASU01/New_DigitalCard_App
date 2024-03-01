@@ -356,6 +356,10 @@ let Forms = ({
         },
       });
       alert("Form Submited Sucessfully");
+   
+      setFullName('');
+      setProfession("");
+      setSummary("")
       setLoader(false)
     } catch (error) {
       // Handle errors
@@ -390,7 +394,11 @@ let Forms = ({
         .catch((err) => {
           alert("Something error" + err.message);
         });
-      alert("Form Submited Sucessfully");
+      alert("Form Updated Sucessfully");
+ 
+      setFullName('');
+      setProfession("");
+      setSummary("")
       setLoader(false)
     } catch (error) {
       // Handle errors
@@ -423,6 +431,7 @@ let Forms = ({
         .then((res) => {
           console.log(res);
           alert("Form Submited Sucessfully");
+          
           setLoader(false)
         })
         .catch((error) => {
@@ -464,7 +473,7 @@ let Forms = ({
           alert("Something error" + err.message);
           setLoader(false)
         });
-      alert("Form Submited Sucessfully");
+      alert("Form Updated Sucessfully");
       setLoader(false)
     } catch (error) {
       // Handle errors
@@ -531,7 +540,7 @@ let Forms = ({
         .catch((err) => {
           alert("Something error" + err.message);
         });
-      alert("Form Submited Sucessfully");
+      alert("Form Updated Sucessfully");
       setLoader(false)
     } catch (error) {
       // Handle errors
@@ -600,7 +609,7 @@ let Forms = ({
         .catch((err) => {
           alert("Something error" + err.message);
         });
-      alert("Form Submited Sucessfully");
+      alert("Form Updated Sucessfully");
       setLoader(false)
     } catch (error) {
       // Handle errors
@@ -668,7 +677,7 @@ let Forms = ({
           alert("Something error" + err.message);
           setLoader(false)
         });
-      alert("Form Submited Sucessfully");
+      alert("Form Updated Sucessfully");
       setLoader(false)
     } catch (error) {
       // Handle errors
@@ -743,7 +752,7 @@ let Forms = ({
         .catch((err) => {
           alert("Something error" + err.message);
         });
-      alert("Form Submited Sucessfully");
+      alert("Form Updated Sucessfully");
       setLoader(false)
     } catch (error) {
       // Handle errors
@@ -817,7 +826,7 @@ let Forms = ({
           alert("Something error" + err.message);
           setLoader(false)
         });
-      alert("Form Submited Sucessfully");
+      alert("Form Updated Sucessfully");
       setLoader(false)
     } catch (error) {
       // Handle errors

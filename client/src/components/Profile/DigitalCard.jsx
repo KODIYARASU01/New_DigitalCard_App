@@ -21,15 +21,13 @@ import address from "../../assets/Social Medias/address.gif";
 import ScrollCarousel from "scroll-carousel";
 
 import gallery from "../../assets/gallery/1.png";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 //products carosel :
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import '../../../node_modules/scroll-carousel/dist/scroll.carousel.min.css';
+import "../../../node_modules/scroll-carousel/dist/scroll.carousel.min.css";
 const DigitalCard = () => {
-
-
   function AutoWriteText() {
     const [text, setText] = useState("");
     const words = [
@@ -54,7 +52,7 @@ const DigitalCard = () => {
   new ScrollCarousel(".my-carousel", {
     autoplay: true,
     smartSpeed: true,
-    direction: 'ltr'
+    direction: "ltr",
   });
 
   const buttonStyle = {
@@ -68,8 +66,8 @@ const DigitalCard = () => {
     prevArrow: (
       <button style={{ ...buttonStyle }}>
         <img
-          width="64"
-          height="64"
+          width="44"
+          height="44"
           src="https://img.icons8.com/nolan/64/back.png"
           alt="back"
         />
@@ -78,10 +76,32 @@ const DigitalCard = () => {
     nextArrow: (
       <button style={{ ...buttonStyle }}>
         <img
-          width="64"
-          height="64"
+          width="44"
+          height="44"
           src="https://img.icons8.com/nolan/64/forward.png"
           alt="forward"
+        />
+      </button>
+    ),
+  };
+  const properties2 = {
+    prevArrow: (
+      <button style={{ ...buttonStyle }}>
+        <img
+          width="42"
+          height="42"
+          src="https://img.icons8.com/stencil/32/circled-left-2.png"
+          alt="circled-left-2"
+        />
+      </button>
+    ),
+    nextArrow: (
+      <button style={{ ...buttonStyle }}>
+        <img
+          width="42"
+          height="42"
+          src="https://img.icons8.com/stencil/32/circled-chevron-right.png"
+          alt="circled-chevron-right"
         />
       </button>
     ),
@@ -89,7 +109,7 @@ const DigitalCard = () => {
   return (
     <>
       <div className="digitalcard_container">
-        <div className="card_box" style={{border:"2px solid white"}}>
+        <div className="card_box" style={{ border: "2px solid white" }}>
           {/* First */}
           <div className="basic_details">
             <div className="banner_image">
@@ -303,7 +323,6 @@ const DigitalCard = () => {
           </div>
 
           <div className="gallery_details">
-   
             <div className="my-carousel">
               <div className="my-slide">
                 {" "}
@@ -318,49 +337,6 @@ const DigitalCard = () => {
                 <img src={gallery} alt="" />
               </div>
             </div>
-          </div>
-
-          {/* Fifth services */}
-          <div className="testimonial_title">
-            <h4>Our Customer Feedback</h4>
-          </div>
-
-          <div className="testimonial_details">
-            <Carousel
-              axis="horizontal"
-              autoPlay="true"
-              showArrows="true"
-              infiniteLoop="true"
-              className="carousel"
-            >
-              <div className="slide_1">
-                <img src={testimonial} />
-                <p className="name">Marial Joes</p>
-                <small>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                  dolores maiores nam quisquam magni provident labore laboriosam
-                  asperiores culpa molestiae!
-                </small>
-              </div>
-              <div className="slide_1">
-                <img src={testimonial} />
-                <p className="name">Punitha</p>
-                <small>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                  dolores maiores nam quisquam magni provident labore laboriosam
-                  asperiores culpa molestiae!
-                </small>
-              </div>
-              <div className="slide_1">
-                <img src={testimonial} />
-                <p className="name">Varsha</p>
-                <small>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                  dolores maiores nam quisquam magni provident labore laboriosam
-                  asperiores culpa molestiae!
-                </small>
-              </div>
-            </Carousel>
           </div>
           {/* Sixth services */}
           <div className="product_title">
@@ -413,6 +389,42 @@ const DigitalCard = () => {
                   Dolores nostrum non neque, quia aut natus ex vero nobis rerum
                   nihil!
                 </p>
+              </div>
+            </Slide>
+          </div>
+                    {/* Fifth services */}
+                    <div className="testimonial_title">
+            <h4>Our Customer Feedback</h4>
+          </div>
+
+          <div className="testimonial_details">
+            <Slide {...properties2}>
+              <div className="slide_1">
+                <img src={testimonial} />
+                <p className="name">Marial Joes</p>
+                <small>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  dolores maiores nam quisquam magni provident labore laboriosam
+                  asperiores culpa molestiae!
+                </small>
+              </div>
+              <div className="slide_1">
+                <img src={testimonial} />
+                <p className="name">Punitha</p>
+                <small>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  dolores maiores nam quisquam magni provident labore laboriosam
+                  asperiores culpa molestiae!
+                </small>
+              </div>
+              <div className="slide_1">
+                <img src={testimonial} />
+                <p className="name">Varsha</p>
+                <small>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  dolores maiores nam quisquam magni provident labore laboriosam
+                  asperiores culpa molestiae!
+                </small>
               </div>
             </Slide>
           </div>
