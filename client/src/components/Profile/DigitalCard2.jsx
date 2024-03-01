@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./DigitalCard2.scss";
-import banner from "../../assets/banner.jpg";
+import banner from "../../assets/Background/1.jpg";
 import logo from "../../assets/avatar_2.jpeg";
 import Wave from "react-wavify";
 import facebook from "../../assets/Social Medias/f.gif";
@@ -24,6 +24,7 @@ import address from "../../assets/Social Medias/address.gif";
 
 import ReactCardFlip from "react-card-flip";
 import calling from "../../assets/svg/calling.svg";
+import service from "../../assets/svg/service.svg";
 import { motion as m } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
@@ -75,6 +76,9 @@ const DigitalCard2 = () => {
   const [isFlipped2, setIsFlipped2] = useState(false);
   const [isFlipped3, setIsFlipped3] = useState(false);
   const [isFlipped4, setIsFlipped4] = useState(false);
+
+  let [isOpen, setIsOpen] = useState(false);
+
   const handleMouseEnter = () => {
     setIsFlipped(true);
   };
@@ -276,11 +280,7 @@ const DigitalCard2 = () => {
               </div>
             </ReactCardFlip>
 
-            <ReactCardFlip
-              isFlipped={isFlipped2}
-              flipDirection="horizontal"
-       
-            >
+            <ReactCardFlip isFlipped={isFlipped2} flipDirection="horizontal">
               <div
                 className="box"
                 onMouseEnter={handleMouseEnter2}
@@ -362,11 +362,93 @@ const DigitalCard2 = () => {
             <Marquee direction="right" delay="4" className="marquee">
               <img src={running} alt="running" />
             </Marquee>
-
-        
           </m.div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,288L1440,128L1440,320L0,320Z"></path></svg>
-          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#0099ff"
+              fill-opacity="1"
+              d="M0,288L1440,128L1440,320L0,320Z"
+            ></path>
+          </svg>
+
+          {/* Third */}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#0099ff"
+              fill-opacity="1"
+              d="M0,224L120,197.3C240,171,480,117,720,80C960,43,1200,21,1320,10.7L1440,0L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"
+            ></path>
+          </svg>
+          <div className="service_title">
+            <h4> Our Services</h4>
+            <img src={service} alt="service" />
+          </div>
+
+          <m.div className="service_details">
+            <m.div
+              className="service_box"
+              onClick={() => setIsOpen(!isOpen)}
+              transition={{ layout: { duration: 1, type: "spring",  } }}
+            >
+              <m.div className="service_pic" layout="position">
+                <img src={banner} alt="service1" />
+
+                <h3>Web Development</h3>
+                {isOpen && (
+                  <m.div className="service_content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Mollitia saepe amet obcaecati adipisci minus eos, sequi
+                    soluta reprehenderit aspernatur vero pariatur non.
+                  </m.div>
+                )}
+              </m.div>
+            </m.div>
+            {/* <m.div className="service_box" transition={{layout:{duration:1,type:'spring'}}}>
+              <div className="service_pic">
+                <img src={banner} alt="service1" />
+              </div>
+              <div className="service_heading">
+                <h3>WordPress Deveopment</h3>
+                {isOpen && (
+                  <m.div className="service_content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Mollitia saepe amet obcaecati adipisci minus eos, sequi
+                    soluta reprehenderit aspernatur vero pariatur non.
+                  </m.div>
+                )}
+              </div>
+            </m.div>
+            <m.div className="service_box" transition={{layout:{duration:1,type:'spring'}}}>
+              <m.div className="service_pic">
+                <img src={banner} alt="service1" />
+              </m.div>
+              <m.div className="service_heading" transition={{layout:{duration:1,type:'spring'}}}>
+                <h3>Bussiness Deveopment</h3>
+                {isOpen && (
+                  <m.div className="service_content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Mollitia saepe amet obcaecati adipisci minus eos, sequi
+                    soluta reprehenderit aspernatur vero pariatur non.
+                  </m.div>
+                )}
+              </m.div>
+            </m.div>
+            <m.div className="service_box"transition={{layout:{duration:1,type:'spring'}}}>
+              <m.div className="service_pic">
+                <img src={banner} alt="service1" />
+              </m.div>
+              <m.div className="service_heading">
+                <h3>Ecommerce Website Deveopment</h3>
+                {isOpen && (
+                  <m.div className="service_content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Mollitia saepe amet obcaecati adipisci minus eos, sequi
+                    soluta reprehenderit aspernatur vero pariatur non.
+                  </m.div>
+                )}
+              </m.div>
+            </m.div> */}
+          </m.div>
         </m.div>
       </m.div>
     </>
