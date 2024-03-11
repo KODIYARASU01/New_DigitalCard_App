@@ -42,7 +42,7 @@ const Sidebar = ({
           className="sidebar_close"
           onClick={() => setSlideShow(!slideClose)}
         >
-          <img src={icon} alt="icons" />
+          <i className="bx bx-chevron-right "></i>
         </div>
         <div className="right_arrow">
           <img src={RightArrow} alt="RightArrow" />
@@ -50,7 +50,11 @@ const Sidebar = ({
         <div className="sidebar_lists">
           <div
             className="list"
-            id={basicForm === true && slideClose === false ? 'selected':'unSelected'}
+            id={
+              basicForm === true && slideClose === false
+                ? "selected"
+                : "unSelected"
+            }
             onClick={() => {
               setBasicForm(true),
                 setContactForm(false),
@@ -62,26 +66,19 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={home} alt="home" title="Add Basic Detail" />
+              <i className="bx bx-home"></i>
             </div>
             <div className="list_title">
               <p> Basic Detail's</p>
             </div>
           </div>
-          {/* <div className="list">
-            <div className="icon">
-              <img src={about} alt="about" title="Add About U" />
-            </div>
-            <div
-              className="list_title"
-              id={slideClose ? "title_close" : "title_open"}
-            >
-              <p> About Detail's</p>
-            </div>
-          </div> */}
           <div
             className="list"
-            id={contactForm === true && slideClose === false ? 'selected':'unSelected'}
+            id={
+              contactForm === true && slideClose === false
+                ? "selected"
+                : "unSelected"
+            }
             onClick={() => {
               setBasicForm(false),
                 setContactForm(true),
@@ -93,7 +90,7 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={getInTouch} alt="about" title="Add Contact Detail" />
+              <i className="bx bxs-contact"></i>
             </div>
             <div
               className="list_title"
@@ -104,7 +101,11 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={serviceForm === true && slideClose === false ? 'selected':'unSelected'}
+            id={
+              serviceForm === true && slideClose === false
+                ? "selected"
+                : "unSelected"
+            }
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -116,7 +117,7 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={service} alt="service" title="Add Service" />
+            <i className="uil uil-shopping-cart-alt"></i>
             </div>
             <div
               className="list_title"
@@ -127,7 +128,11 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={productForm === true && slideClose === false ? 'selected':'unSelected'}
+            id={
+              productForm === true && slideClose === false
+                ? "selected"
+                : "unSelected"
+            }
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -139,7 +144,7 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={product} alt="product" title="Add Product" />
+              <i className="bx bxl-product-hunt"></i>
             </div>
             <div
               className="list_title"
@@ -151,7 +156,11 @@ const Sidebar = ({
 
           <div
             className="list"
-            id={galleryForm === true && slideClose === false ? 'selected':'unSelected'}
+            id={
+              galleryForm === true && slideClose === false
+                ? "selected"
+                : "unSelected"
+            }
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -163,7 +172,7 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={gallery} alt="gallery" title="Add Gallery" />
+              <i className="uil uil-scenery"></i>
             </div>
             <div
               className="list_title"
@@ -174,7 +183,11 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={socialMediaForm === true && slideClose === false ? 'selected':'unSelected'}
+            id={
+              socialMediaForm === true && slideClose === false
+                ? "selected"
+                : "unSelected"
+            }
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -186,7 +199,7 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={connect} alt="connect" title="Add Social Media Link" />
+              <i className="uil uil-share"></i>
             </div>
             <div
               className="list_title"
@@ -197,7 +210,11 @@ const Sidebar = ({
           </div>
           <div
             className="list"
-            id={testimonialForm === true && slideClose === false ? 'selected':'unSelected'}
+            id={
+              testimonialForm === true && slideClose === false
+                ? "selected"
+                : "unSelected"
+            }
             onClick={() => {
               setBasicForm(false),
                 setContactForm(false),
@@ -209,7 +226,7 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={star} alt="star" title="Add Testimonial" />
+              <i className="uil uil-users-alt"></i>
             </div>
             <div
               className="list_title"
@@ -232,7 +249,7 @@ const Sidebar = ({
             }}
           >
             <div className="icon">
-              <img src={video} alt="video" title="Add Video Profile" />
+              <i className="uil uil-video"></i>
             </div>
             <div
               className="list_title"

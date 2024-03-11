@@ -22,7 +22,7 @@
     height: 500vh;
     overflow-x: hidden;
     overflow-y: auto;
-    background: linear-gradient(#ffffff, #ffffff);
+    background: linear-gradient(#85FFBD, #FFFB7D);
     border-radius: 5px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
     //First::after
@@ -30,7 +30,7 @@
       width: 100%;
       height: auto;
       position: relative;
-      background-image: url(../../assets/Background/16.jpg);
+      // background-image: url(../../assets/Background/16.jpg);
       background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -976,7 +976,7 @@
   }
 
   @media screen and (max-width: 900px) {
-    padding: 0px;
+    padding: 0px !important;
   }
 }
 

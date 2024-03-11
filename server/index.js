@@ -3,11 +3,30 @@ import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import multer from "multer";
+import path from 'path';
+
 let app = express();
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json({limit:"30mb",extended:true}))
+app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
+app.use(express.static('./public'));
 let PORT = process.env.PORT || 3000;
 let uri = process.env.MONGODB_URI;
+
+//Using Multer package:
+ multer.diskStorage({
+  destination:(res,file,cb)=>{
+cb(null,'./public/Images')
+  },
+  filename:(req,res,cb)=>{
+    cb(null,file.fieldname + '_'+Date.now()+ path.extname(file.orginalname));
+  }
+ });
+
+//All Routes:
 
 import BasicDetailRoute from './Routes/BasicDetail.router.js';
 import ContactDetailRoute from './Routes/ContactDetail.route.js';
@@ -42,7 +61,7 @@ app.get('/',(req,res)=>{
 })
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(uri)
+  .connect(uri,{useNewUrlParser:true,useUnifiedTopology:true})
   .then(() => {
     console.log("Mongodb Connected Succesfully");
     app.listen(PORT, () => {

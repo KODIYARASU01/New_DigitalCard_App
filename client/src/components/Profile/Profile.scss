@@ -1,15 +1,42 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
 }
-.profile_container{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    // align-items: center;
-    // justify-content: center;
+.profile_container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-image: url(../../assets/AddminPannel/dr12.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden !important;
+  overflow-x: hidden;
 
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
 
+.profile_details {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+
+  .profile_image {
+    img {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 2px solid lightgreen;
+    }
+  }
+  .details {
+    position: absolute;
+    top:60%;
+    right: -950%;
+
+  }
 }

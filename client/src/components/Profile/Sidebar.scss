@@ -1,7 +1,12 @@
 .sidebar_container {
 width: 18vw;
   max-height: 100vh;
-  background-color: #ffff;
+  // background-color: #ffff;
+  // background-image: url(../../assets/Background/21.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
+  background-color: #e3fcaa;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
   padding: 15px 10px;
   overflow: hidden;
@@ -15,6 +20,7 @@ width: 18vw;
     h3 {
       font-weight: bold;
       letter-spacing: 1px;
+      color: rgb(7, 7, 7);
 
       @media screen and (max-width:900px){
         font-size: 0.7rem;
@@ -34,10 +40,11 @@ width: 18vw;
     top: 2%;
     left: 5%;
 
-    img {
-      width: 20px;
-      height: 20px;
+    i {
+      font-size: 1.5rem;
+      color: rgb(0, 0, 0);
       cursor: pointer;
+      mix-blend-mode: multiply;
     }
 
     @media screen and (max-width:900px){
@@ -74,6 +81,7 @@ width: 18vw;
       cursor: pointer;
       justify-content: center;
       width: 100%;
+      background-color: white;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
       padding: 10px 1rem;
       margin-bottom: 1rem;
@@ -82,9 +90,9 @@ width: 18vw;
 
       .icon {
         flex: 0.3;
-        img {
-          width: 25px;
-          height: 25px;
+        i {
+      color: #4555e4;
+          font-size: 1.3rem;
           object-fit: cover;
           mix-blend-mode: multiply;
         }
@@ -99,7 +107,7 @@ width: 18vw;
       }
 
       &:hover {
-        background-color: rgb(106, 230, 235);
+        background-color: #8bdf47;
         color: #ffff;
         scale: 1.05;
         transition: all 0.4s ease-in-out;
@@ -125,7 +133,7 @@ width: 18vw;
       }
       @media screen and (max-width:450px){
   
-        min-width:100%;
+        min-width:60%;
      
       }
     }
@@ -192,14 +200,14 @@ width: 18vw;
 
   @media screen and (max-width:900px){
     width: 100vw;
-    max-height: 17vh;
+    max-height: 15vh;
     // position: relative;
     box-shadow: 0px 4px 5px rgba(201, 199, 199, 0.4);
-    padding: 1rem 0px 0.1rem 0px;
+    padding: 1rem 1rem 0.1rem 1rem;
     top: 0%;
     left: 0%;
     overflow-x: auto;
-
+    background-color: #e3fcaa;
   }
 }
 
@@ -217,7 +225,8 @@ width: 18vw;
   #open {
     width: 18vw;
    height: 100vh;
-    background-color: #ffff;
+    // background-color: #ffff;
+    background-color: #e3fcaa;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
     padding: 15px 10px;
     overflow: hidden;
@@ -248,9 +257,9 @@ width: 18vw;
     width: 100%;
     cursor: pointer;
   
-    img {
-      width: 30px;
-      height: 30px;
+    i {
+  
+      font-size: 1.4rem;
       display: flex;
       align-items: center;
       
@@ -310,8 +319,8 @@ width: 18vw;
 
 //Side bar selected notification:
   #selected{
-    background-color: rgb(106, 230, 235);
-    color: #ffff;
+    background-color: #8bdf47;
+    color: #ffffff;
     scale: 1.05;
     transform: scale(1.01s);
     transition: all 0.4s ease-in-out;

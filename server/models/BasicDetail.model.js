@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 
+
+// let BasicDetailBannerSchema=new mongoose.Schema({
+//   image:{
+//     type:String,
+//     required:true
+//   }
+// });
+
 let BasiDetailSchema = mongoose.Schema(
   {
     user: {
@@ -7,8 +15,9 @@ let BasiDetailSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    banner: {
-      type: String,
+    banner:{
+      type:String,
+      required:true
     },
     logo: {
       type: String,
@@ -25,6 +34,8 @@ let BasiDetailSchema = mongoose.Schema(
     summary: {
       type: String,
     },
+
+
   },
   { timestamps: true }
 );

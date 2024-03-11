@@ -12,11 +12,11 @@ let ServiceDetailSchema=new mongoose.Schema({
     },
     serviceTitle:{
         type:String,
-        required:true,
+        // required:true,
     },
     serviceSummary:{
         type:String,
-        required:true,
+        // required:true,
     }
 },
 {timestamps:true}

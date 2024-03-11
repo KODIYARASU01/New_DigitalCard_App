@@ -1,8 +1,7 @@
 .forms_container {
-  width: 82vw;
+ width: 50vw;
   height: 100vh;
   position: relative;
-  overflow: auto;
   padding: 0.2rem 2rem;
   // box-shadow: 0px 4px 5px rgba(0,0,0,0.5);
 
@@ -10,12 +9,13 @@
   .Form1_container {
     position: absolute;
     left: 0%;
-    min-width: 80%;
-    width: 80%;
-    min-height: 90%;
+    min-width: 60%;
+    width: 60%;
+    min-height: auto;
+    height: auto;
     margin: 10px;
     // background-color: aqua;
-    padding: 1rem 0.2rem;
+    padding: 0rem 0.2rem;
     transition: all 0.5s linear;
     .Form_title {
       font-weight: bold;
@@ -35,23 +35,24 @@
     }
     form {
       width: 90%;
-      height: 90%;
-      background-color: #ffffff;
+      height: auto;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-      padding: 0.6rem 2rem;
-      margin: 1rem auto;
+      padding: 0.6rem 0.6rem;
+      margin: 0.5rem auto;
+      border-radius: 1rem;
       display: grid;
       overflow: hidden;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       //   grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 10px;
+      grid-row-gap:0.2rem;
       grid-column-gap: 15px;
       position: relative;
 
       .edit_form{
         position: absolute;
         right: 5%;
-        top:3%;
+        top:0%;
         z-index: 600;
 
         img{
@@ -82,7 +83,8 @@
         label {
           width: 80%;
           font-size: 0.7rem;
-          color: gray;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
           display: flex;
           align-items: flex-start;
           justify-content: center;
@@ -123,12 +125,13 @@
             // mix-blend-mode: multiply;
           }
           .logo {
-            min-width: 100px;
+          
             width: 100px;
+            height: 100px;
             object-fit: cover;
             object-position: centers;
             height: 100px;
-            border-radius: 13px;
+            border-radius: 50%;
           }
         }
 
@@ -142,14 +145,15 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          border: transparent;
+          background-color: rgb(255, 255, 255);
           margin: 0.2rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
-            color:gray;
+            color:rgb(26, 25, 25);
           }
           &:focus {
             border: 1px solid rgb(92, 133, 245);
@@ -165,10 +169,12 @@
         input[type="submit"] {
           width: 60%;
           outline: none;
-          background-color: royalblue;
-          padding: 10px 1rem;
+          background-color: #79be3f;
+          padding: 9px 1rem;
           font-weight: 600;
           color: white;
+          font-size: 0.8rem;
+          border-radius: 1rem;
           cursor: pointer;
           transition: all 0.3s ease-in-out;
 
@@ -182,12 +188,16 @@
         width: 98%;
         padding: 0.6rem 0.4rem;
         margin: auto;
+        height: auto;
+   
       }
     }
 
     @media screen and (max-width: 900px) {
       width: 100%;
       margin: auto;
+  height: 130vh;
+  overflow: scroll;
       padding: 1rem 0.2rem;
     }
   }
@@ -196,12 +206,13 @@
   .Form2_container {
     position: absolute;
     left: 0%;
-    min-width: 80%;
-    width: 80%;
-    min-height: 90%;
+    min-width: 60%;
+    width: 60%;
+    min-height: 100%;
+    height: 100%;
     margin: 10px;
     // background-color: aqua;
-    padding: 1rem 0.2rem;
+    padding: 0rem 0.2rem;
 
     .Form_title {
       font-weight: bold;
@@ -221,21 +232,22 @@
     }
     form {
       width: 90%;
-      height: 90%;
-      background-color: #ffffff;
+      height: auto;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-      padding: 0.6rem 2rem;
+      padding:1rem 2rem;
+      border-radius: 1rem;
       margin: 1rem auto;
       display: grid;
       overflow: hidden;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       //   grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 10px;
+      grid-row-gap: 0.4rem;
       grid-column-gap: 15px;
       .edit_form{
         position: absolute;
         right: 10%;
-        top:8%;
+        top:5%;
         z-index: 600;
 
         img{
@@ -257,7 +269,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 5px;
         width: 100%;
         margin: auto;
@@ -267,7 +279,9 @@
         label {
           width: 80%;
           font-size: 0.7rem;
-          color: gray;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
+
           display: flex;
           align-items: flex-start;
           justify-content: center;
@@ -277,34 +291,36 @@
           gap: 10px;
         }
         input {
-          min-width: 90%;
-          width: 90%;
+          min-width: 100%;
+          width: 100%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          background-color: rgb(255, 255, 255);
           margin: 0.2rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
+            color: #222429;
           }
           &:focus {
             border: 1px solid royalblue;
           }
         }
         textarea {
-          min-width: 90%;
-          width: 90%;
+          min-width: 100%;
+          width: 100%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          background-color: rgb(255, 255, 255);
           margin-top: 1rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
+            color: #222429;
           }
           &:focus {
             border: 1px solid royalblue;
@@ -318,11 +334,12 @@
         justify-content: center;
 
         input[type="submit"] {
-          width: 100%;
+          width: 75%;
           display: block !important;
           outline: none;
-          background-color: royalblue;
-          padding: 10px 1rem;
+          background-color: #79be3f;
+          padding: 8px 1rem;
+      border-radius: 1rem;
           font-weight: 600;
           color: white;
           cursor: pointer;
@@ -344,6 +361,9 @@
 
     @media screen and (max-width: 900px) {
       width: 100%;
+      height: 110vh;
+      margin: auto;
+      overflow: scroll;
       padding: 1rem 0.2rem;
     }
   }
@@ -351,12 +371,14 @@
   .Form3_container {
     position: absolute;
     left: 0%;
-    min-width: 80%;
-    width: 80%;
-    min-height: 90%;
+    min-width: 60%;
+    width: 60%;
+    min-height: 100%;
+    height: 100%;
     margin: 10px;
     // background-color: aqua;
-    padding: 1rem 0.2rem;
+    padding: 0rem 0.2rem;
+
 
     .Form_title {
       font-weight: bold;
@@ -376,27 +398,27 @@
     }
     form {
       width: 90%;
-      height: 70%;
-      background-color: #ffffff;
+      height: auto;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-      padding: 0.6rem 2rem;
+      padding:1rem 2rem;
+      border-radius: 1rem;
       margin: 1rem auto;
       display: grid;
       overflow: hidden;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       //   grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 10px;
+      grid-row-gap: 2rem;
       grid-column-gap: 15px;
       .edit_form{
         position: absolute;
         right: 10%;
-        top:8%;
+        top:5%;
         z-index: 600;
-
         img{
           cursor: pointer !important;
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
           border-radius: 50%;
           padding: 5px;
           transition: all 0.4s ease-in-out;
@@ -421,7 +443,8 @@
         label {
           width: 80%;
           font-size: 0.7rem;
-          color: gray;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
@@ -431,8 +454,8 @@
           gap: 10px;
           .serviceImage {
             margin: 10px;
-            min-width: 300px;
-            width: 300px;
+            min-width: 250px;
+            width: 250px;
             height: 150px;
             object-fit: cover;
             object-position: center;
@@ -444,8 +467,8 @@
             top: 15%;
             cursor: pointer;
             right: -6%;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             padding: 10px;
             border-radius: 50%;
             // mix-blend-mode: multiply;
@@ -458,17 +481,18 @@
 
         input,
         textarea {
-          min-width: 90%;
-          width: 90%;
+          min-width: 100%;
+          width: 100%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          background-color: rgb(255, 255, 255);
           margin: 0.2rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
+            color: #222429;
           }
           &:focus {
             border: 1px solid royalblue;
@@ -482,10 +506,12 @@
         justify-content: center;
 
         input[type="submit"] {
-          width: 60%;
+          width: 75%;
+          display: block !important;
           outline: none;
-          background-color: royalblue;
-          padding: 10px 1rem;
+          background-color: #79be3f;
+          padding: 8px 1rem;
+      border-radius: 1rem;
           font-weight: 600;
           color: white;
           cursor: pointer;
@@ -506,6 +532,9 @@
 
     @media screen and (max-width: 900px) {
       width: 100%;
+      height: 110vh;
+      margin: auto;
+      overflow: scroll;
       padding: 1rem 0.2rem;
     }
   }
@@ -513,13 +542,13 @@
   .Form4_container {
     position: absolute;
     left: 0%;
-    min-width: 80%;
-    width: 80%;
-    min-height: 90%;
+    min-width: 60%;
+    width: 60%;
+    min-height: 100%;
+    height: 100%;
     margin: 10px;
     // background-color: aqua;
-    padding: 1rem 0.2rem;
-
+    padding: 0rem 0.2rem;
     .Form_title {
       font-weight: bold;
 
@@ -538,27 +567,28 @@
     }
     form {
       width: 90%;
-      height: 70%;
-      background-color: #ffffff;
+      height: auto;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-      padding: 0.6rem 2rem;
+      padding:1rem 2rem;
+      border-radius: 1rem;
       margin: 1rem auto;
       display: grid;
       overflow: hidden;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       //   grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 10px;
+      grid-row-gap: 0.5rem;
       grid-column-gap: 15px;
       .edit_form{
         position: absolute;
         right: 10%;
-        top:8%;
+        top:7%;
         z-index: 600;
 
         img{
           cursor: pointer !important;
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
           border-radius: 50%;
           padding: 5px;
           transition: all 0.4s ease-in-out;
@@ -576,14 +606,15 @@
         align-items: flex-start;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 10px;
+        gap: 1rem;
         padding: 10px;
         position: relative;
 
         label {
           width: 80%;
           font-size: 0.7rem;
-          color: gray;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
@@ -593,8 +624,8 @@
           gap: 10px;
           .productImage {
             margin: 10px;
-            min-width: 300px;
-            width: 300px;
+            min-width: 250px;
+            width: 250px;
             height: 150px;
             object-fit: cover;
             object-position: center;
@@ -606,8 +637,8 @@
             top: 15%;
             cursor: pointer;
             right: -6%;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             padding: 10px;
             border-radius: 50%;
             // mix-blend-mode: multiply;
@@ -620,17 +651,18 @@
 
         input,
         textarea {
-          min-width: 90%;
-          width: 90%;
+          min-width: 100%;
+          width: 100%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          background-color: rgb(255, 255, 255);
           margin: 0.2rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
+            color: #222429;
           }
           &:focus {
             border: 1px solid royalblue;
@@ -644,10 +676,12 @@
         justify-content: center;
 
         input[type="submit"] {
-          width: 60%;
+          width: 75%;
+          display: block !important;
           outline: none;
-          background-color: royalblue;
-          padding: 10px 1rem;
+          background-color: #79be3f;
+          padding: 8px 1rem;
+      border-radius: 1rem;
           font-weight: 600;
           color: white;
           cursor: pointer;
@@ -668,6 +702,9 @@
 
     @media screen and (max-width: 900px) {
       width: 100%;
+      height: 110vh;
+      margin: auto;
+      overflow: scroll;
       padding: 1rem 0.2rem;
     }
   }
@@ -675,12 +712,13 @@
   .Form5_container {
     position: absolute;
     left: 0%;
-    min-width: 80%;
-    width: 80%;
-    min-height: 90%;
+    min-width: 60%;
+    width: 60%;
+    min-height: 100%;
+    height: 100%;
     margin: 10px;
     // background-color: aqua;
-    padding: 1rem 0.2rem;
+    padding: 0rem 0.2rem;
 
     .Form_title {
       font-weight: bold;
@@ -700,27 +738,28 @@
     }
     form {
       width: 90%;
-      height: 70%;
-      background-color: #ffffff;
+      height: auto;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-      padding: 0.6rem 2rem;
+      padding:1rem ;
+      border-radius: 1rem;
       margin: 1rem auto;
       display: grid;
       overflow: hidden;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       //   grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 10px;
-      grid-column-gap: 15px;
+      grid-row-gap: 2rem;
+      grid-column-gap:1.5rem;
       .edit_form{
         position: absolute;
         right: 10%;
-        top:8%;
+        top:7%;
         z-index: 600;
 
         img{
           cursor: pointer !important;
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
           border-radius: 50%;
           padding: 5px;
           transition: all 0.4s ease-in-out;
@@ -745,7 +784,8 @@
         label {
           width: 80%;
           font-size: 0.7rem;
-          color: gray;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
@@ -782,17 +822,18 @@
 
         input,
         textarea {
-          min-width: 90%;
-          width: 90%;
+          min-width: 100%;
+          width: 100%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          background-color: rgb(255, 255, 255);
           margin: 0.2rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
+            color: #222429;
           }
           &:focus {
             border: 1px solid royalblue;
@@ -806,10 +847,12 @@
         justify-content: center;
 
         input[type="submit"] {
-          width: 60%;
+          width: 75%;
+          display: block !important;
           outline: none;
-          background-color: royalblue;
-          padding: 10px 1rem;
+          background-color: #79be3f;
+          padding: 8px 1rem;
+      border-radius: 1rem;
           font-weight: 600;
           color: white;
           cursor: pointer;
@@ -830,6 +873,9 @@
 
     @media screen and (max-width: 900px) {
       width: 100%;
+      height: 80vh;
+      margin: auto;
+      overflow: hidden;
       padding: 1rem 0.2rem;
     }
   }
@@ -864,7 +910,7 @@
     form {
       width: 90%;
       height: 70%;
-      background-color: #ffffff;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
       padding: 0.6rem 2rem;
       margin: 1rem auto;
@@ -948,11 +994,11 @@
           width: 90%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          background-color: #1a6496;
           margin: 0.2rem auto;
           border-radius: 5px;
           border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
           }
@@ -998,15 +1044,14 @@
   //Form7 upload social media update Details::after
   .Form7_container {
     position: absolute;
-    top: 0%;
     left: 0%;
     min-width: 60%;
     width: 60%;
-    min-height: 90%;
+    min-height: 100%;
+    height: 100%;
     margin: 10px;
     // background-color: aqua;
-    padding: 1rem 0.2rem;
-
+    padding: 0rem 0.2rem;
     .Form_title {
       font-weight: bold;
 
@@ -1025,27 +1070,28 @@
     }
     form {
       width: 90%;
-      height: 70%;
-      background-color: #ffffff;
+      height: auto;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-      padding: 0.6rem 2rem;
+      padding:1rem 2rem;
+      border-radius: 1rem;
       margin: 1rem auto;
       display: grid;
       overflow: hidden;
-      // grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-      grid-template-columns: 1fr;
-      grid-row-gap: 10px;
+      // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
+      grid-row-gap: 1rem;
       grid-column-gap: 15px;
       .edit_form{
         position: absolute;
         right: 6%;
-        top:8%;
+        top:7%;
         z-index: 600;
 
         img{
           cursor: pointer !important;
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
           border-radius: 50%;
           padding: 5px;
           transition: all 0.4s ease-in-out;
@@ -1072,12 +1118,18 @@
           font-size: 0.7rem;
           color: gray;
           display: flex;
-          align-items: flex-start;
-          justify-content: flex-start;
+          align-items: center;
+          justify-content: center;
           flex-direction: column;
           position: relative;
-          //   margin: auto;
+            margin: auto;
           gap: 10px;
+
+          img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
         }
 
         input[type="file"] {
@@ -1085,17 +1137,18 @@
         }
 
         input {
-          min-width: 90%;
-          width: 90%;
+          min-width: 80%;
+          width: 80%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
+          background-color: rgb(255, 255, 255);
           margin: 0.2rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
+            color: #222429;
           }
           &:focus {
             border: 1px solid royalblue;
@@ -1109,10 +1162,12 @@
         justify-content: center;
 
         input[type="submit"] {
-          width: 50%;
+          width: 35%;
+          display: block !important;
           outline: none;
-          background-color: royalblue;
+          background-color: #79be3f;
           padding: 8px 1rem;
+      border-radius: 1rem;
           font-weight: 600;
           color: white;
           cursor: pointer;
@@ -1133,6 +1188,9 @@
 
     @media screen and (max-width: 900px) {
       width: 100%;
+      height: auto;
+      margin: auto;
+      overflow: scroll;
       padding: 1rem 0.2rem;
     }
   }
@@ -1141,12 +1199,13 @@
   .Form8_container {
     position: absolute;
     left: 0%;
-    min-width: 80%;
-    width: 80%;
-    min-height: 90%;
+    min-width: 60%;
+    width: 60%;
+    min-height: 100%;
+    height: 100%;
     margin: 10px;
     // background-color: aqua;
-    padding: 1rem 0.2rem;
+    padding: 0rem 0.2rem;
 
     .Form_title {
       font-weight: bold;
@@ -1166,27 +1225,28 @@
     }
     form {
       width: 90%;
-      height: 70%;
-      background-color: #ffffff;
+      height: auto;
+      background-color: #1a6496;
       box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
-      padding: 0.6rem 2rem;
-      margin: 0.2rem auto;
+      padding:1rem 2rem;
+      border-radius: 1rem;
+      margin: 1rem auto;
       display: grid;
       overflow: hidden;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       //   grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 10px;
+      grid-row-gap: 2rem;
       grid-column-gap: 15px;
       .edit_form{
         position: absolute;
         right: 6%;
-        top:8%;
+        top:7%;
         z-index: 600;
 
         img{
           cursor: pointer !important;
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
           border-radius: 50%;
           padding: 5px;
           transition: all 0.4s ease-in-out;
@@ -1211,7 +1271,8 @@
         label {
           width: 80%;
           font-size: 0.7rem;
-          color: gray;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
@@ -1221,12 +1282,13 @@
           gap: 10px;
           .testimonialImage {
             margin: 10px;
-            min-width: 150px;
-            width: 150px;
-            height: 150px;
+          
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
             object-fit: cover;
             object-position: center;
-            border-radius: 10px;
+           
             cursor: pointer;
           }
           .upload {
@@ -1248,17 +1310,18 @@
 
         input,
         textarea {
-          min-width: 90%;
-          width: 90%;
+          min-width: 100%;
+          width: 100%;
           padding: 8px 1rem;
           outline: none;
-          background-color: rgb(173, 255, 162);
-          margin-top: 1rem auto;
+          background-color: rgb(255, 255, 255);
+          margin: 0.2rem auto;
           border-radius: 5px;
-          border: 1px solid rgb(255, 255, 255);
-          caret-color: royalblue;
+          // border: 1px solid rgb(255, 255, 255);
+          caret-color: rgb(105, 88, 255);
           &::placeholder {
             font-size: 0.7rem;
+            color: #222429;
           }
           &:focus {
             border: 1px solid royalblue;
@@ -1272,10 +1335,12 @@
         justify-content: center;
 
         input[type="submit"] {
-          width: 60%;
+          width: 75%;
+          display: block !important;
           outline: none;
-          background-color: royalblue;
-          padding: 10px 1rem;
+          background-color: #79be3f;
+          padding: 8px 1rem;
+      border-radius: 1rem;
           font-weight: 600;
           color: white;
           cursor: pointer;
@@ -1296,6 +1361,9 @@
 
     @media screen and (max-width: 900px) {
       width: 100%;
+      height: 110vh;
+      margin: auto;
+      overflow: scroll;
       padding: 1rem 0.2rem;
     }
   }
@@ -1307,10 +1375,11 @@
     // background-color: aqua;
     min-height: 90vh;
     width: 100vw;
+    height: auto;
     position: absolute;
     top: 20%;
     left: 0%;
-
+overflow: auto;
     padding: 0.1rem 0.2rem;
     // box-shadow: 0px 4px 5px rgba(0,0,0,0.5);
   }
@@ -1318,15 +1387,17 @@
 
 
   #Formclose {
-    width: 95vw;
+    width: 50vw;
     height: 90vh;
-    margin: auto;
+    // margin: auto;
   }
 
 
 #Form1close{
-  min-width: 65%;
-  width: 65%;
+  width: 60%;
+  height: 90%;
+  min-width: 60%;
+  // width: 65%;
   transition: all 0.5s linear;
 }
 #Form7close{
@@ -1334,3 +1405,38 @@
   width: 50%;
   transition: all 0.5s linear;
 }
+
+// //Loader style
+// .loader {
+//   width: 48px;
+//   height: 48px;
+//   display: inline-block;
+//   position: relative;
+// }
+// .loader::after,
+// .loader::before {
+//   content: '';  
+//   box-sizing: border-box;
+//   width: 48px;
+//   height: 48px;
+//   border-radius: 50%;
+//   border: 2px solid #FFF;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   animation: animloader 2s linear infinite;
+// }
+// .loader::after {
+//   animation-delay: 1s;
+// }
+
+// @keyframes animloader {
+//   0% {
+//     transform: scale(0);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: scale(1);
+//     opacity: 0;
+//   }
+// }

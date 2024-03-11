@@ -3,14 +3,14 @@ import ServiceDetails from "../models/ServiceDetail.model.js";
 
 export const postData = async (req, res) => {
   try {
-    if (!req.body.serviceImage || !req.body.serviceTitle || !req.body.serviceSummary) {
+    if (!req.file.filename || !req.body.serviceTitle || !req.body.serviceSummary) {
       return res.status(401).json({
         message: "Send all required fields : serviceImage , serviceImage, serviceSummary",
       });
     }
     let ServiceData = {
       user: req.user.id,
-        serviceImage: req.body.serviceImage,
+        serviceImage: req.file.filename,
         serviceTitle: req.body.serviceTitle,
         serviceSummary: req.body.serviceSummary,
     };

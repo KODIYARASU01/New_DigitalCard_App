@@ -1,16 +1,15 @@
-
 import BasicDetail from "../models/BasicDetail.model.js";
 
 export const postData=async (req, res) => {
     try {
-      if (!req.body.fullName || !req.body.profession) {
+      if (!req.body.fullName || !req.body.profession || !req.file.filename) {
         return res
           .status(401)
-          .json({ message: "Pls fillup required field:Fullname,Profession" });
+          .json({ message: "Pls fillup required field:Fullname,Profession,banner" });
       } else {
         let newData = {
           user: req.user.id,
-          banner: req.body.banner,
+          banner: req.file.filename,
           logo: req.body.logo,
           fullName: req.body.fullName,
           profession: req.body.profession,
