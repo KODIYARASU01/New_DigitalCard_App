@@ -1,13 +1,5 @@
 import mongoose from "mongoose";
 
-
-// let BasicDetailBannerSchema=new mongoose.Schema({
-//   image:{
-//     type:String,
-//     required:true
-//   }
-// });
-
 let BasiDetailSchema = mongoose.Schema(
   {
     user: {
@@ -17,7 +9,7 @@ let BasiDetailSchema = mongoose.Schema(
     },
     banner:{
       type:String,
-      required:true
+    
     },
     logo: {
       type: String,

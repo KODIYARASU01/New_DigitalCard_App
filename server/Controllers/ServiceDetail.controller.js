@@ -3,23 +3,23 @@ import ServiceDetails from "../models/ServiceDetail.model.js";
 
 export const postData = async (req, res) => {
   try {
-    if (!req.file.filename || !req.body.serviceTitle || !req.body.serviceSummary) {
+    if (!req.body.serviceImage || !req.body.serviceTitle || !req.body.serviceSummary) {
       return res.status(401).json({
         message: "Send all required fields : serviceImage , serviceImage, serviceSummary",
       });
     }
     let ServiceData = {
       user: req.user.id,
-        serviceImage: req.file.filename,
+        serviceImage: req.body.serviceImage,
         serviceTitle: req.body.serviceTitle,
         serviceSummary: req.body.serviceSummary,
     };
 
     let postData = await ServiceDetails.create(ServiceData);
 
-    return res.status(201).send(`Data post sucessfully , ${postData}`);
+    return res.status(201).json({message:'Data uploaded Sucessfully'});
   } catch (err) {
-    return res.status(401).send("Service Detail not sended to database"+err.message);
+    return res.status(401).json({message:'Data uploading Failed'});
   }
 };
 
@@ -28,11 +28,12 @@ export const getData=async (req, res) => {
     try {
       let getServiceDetail = await ServiceDetails.find({ user: req.user.id });
   
-      return res
-        .status(201)
-        .json({getServiceDetail});
+      if(!getServiceDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res.status(201).json({message:'Data fetched sucessfully',getServiceDetail});
     } catch (err) {
-      return res.status(401).send("Data Fetching failed"+err.message);
+      return res.status(401).json({message:'Data fetching Failed'});
     }
   };
 
@@ -41,10 +42,12 @@ export const getData=async (req, res) => {
     try {
       let { id } = req.params;
       let getServiceDetail = await ServiceDetails.findById(req.user.id);
-  
-      return res.status(201).json(getServiceDetail);
+      if(!getServiceDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res.status(201).json({message:'Data fetched sucessfully',getServiceDetail});
     } catch (err) {
-      return res.status(401).send("Specific Data Fetching failed"+err.message);
+      return res.status(401).json({message:'Data fetching Failed'});
     }
   };
 
@@ -56,11 +59,11 @@ export const getData=async (req, res) => {
       let updateService = await ServiceDetails.findByIdAndUpdate(id, req.body);
   
       if (!updateService) {
-        return res.status(401).send("Data not found that specific id");
+        return res.status(401).jason({message:"Data not found that specific id"});
       }
-      return res.status(201).send("Data Updated Sucessfull" + updateService);
+      return res.status(201).json({message:'Data updated sucessfully'});
     } catch (err) {
-      return res.status(401).send("Specific data updating failed"+err.message);
+      return res.status(401).json({message:'Data updating Failed'});
     }
   };
 
@@ -72,14 +75,12 @@ export const getData=async (req, res) => {
       let deleteData = await ServiceDetails.findByIdAndDelete(id );
   
       if (!deleteData) {
-        return res.status(401).send("Data not found that specific Id");
+        return res.status(401).json({message:"Data not found that specific Id"});
       }
   
-      return res
-        .status(401)
-        .send("Specific data Deleting Sucessfully " + deleteData);
+      return res.status(201).json({message:'Data deleted sucessfully'});
     } catch (error) {
-      return res.status(401).send("Specific data Deleting failed"+error.message);
+      return res.status(401).json({message:'Data deleting Failed'});
     }
   };
 

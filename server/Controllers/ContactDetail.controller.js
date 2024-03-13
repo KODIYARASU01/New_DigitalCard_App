@@ -17,12 +17,10 @@ export const postData = async (req, res) => {
       DOB: req.body.DOB,
       Address: req.body.Address,
     };
-
     let postData = await ContactDetails.create(ContactData);
-
-    return res.status(201).json({postData});
+    return res.status(201).json({message:'Data upload sucessfully'});
   } catch (err) {
-    return res.status(401).send("Contact Detail not sended to database" + err.message);
+    return res.status(401).json({message:'Data upload failed'});
   }
 };
 
@@ -33,9 +31,9 @@ export const getData=async (req, res) => {
   
       return res
         .status(201)
-        .json({getContactDetail});
+        .json({message:'Data fetched Sucessfully',getContactDetail});
     } catch (err) {
-      return res.status(401).send("Data Fetching failed");
+      return res.status(401).json({message:'Data fetching Failed'});
     }
   };
 
@@ -44,10 +42,15 @@ export const getData=async (req, res) => {
     try {
       let { id } = req.params;
       let getContactDetail = await ContactDetails.findById(req.user.id);
-  
-      return res.status(201).json({getContactDetail});
+      if (!getContactDetail) {
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res
+      .status(201)
+      .json({message:'Data fetched Sucessfully',getContactDetail});
+      
     } catch (err) {
-      return res.status(401).send("Specific Data Fetching failed");
+      return res.status(401).json({message:'Data fetching Failed'});
     }
   };
 
@@ -59,11 +62,11 @@ export const getData=async (req, res) => {
       let updateDetails = await ContactDetails.findByIdAndUpdate(id, req.body);
   
       if (!updateDetails) {
-        return res.status(401).send("Data not found that specific id");
+        return res.status(401).json({message:'Details not found'});
       }
-      return res.status(201).send("Data Updated Sucessfull" + updateDetails);
+      return res.status(201).json({message:'Data updated sucessfully'});
     } catch (err) {
-      return res.status(401).send("Specific data updating failed");
+      return res.status(401).json({message:'Data updating Failed'});
     }
   };
 
@@ -75,14 +78,12 @@ export const getData=async (req, res) => {
       let deleteData = await ContactDetails.findByIdAndDelete(id );
   
       if (!deleteData) {
-        return res.status(401).send("Data not found that specific Id");
+        return res.status(401).json({message:'Details not found'});
       }
   
-      return res
-        .status(401)
-        .send("Specific data Deleting Sucessfully " + deleteData);
+      return res.status(201).json({message:'Data deleted sucessfully'});
     } catch (error) {
-      return res.status(401).send("Specific data Deleting failed");
+      return res.status(401).json({message:'Data deleting Failed'});
     }
   };
 

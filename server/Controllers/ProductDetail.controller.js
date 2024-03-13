@@ -18,9 +18,9 @@ export const postData = async (req, res) => {
 
     let postData = await ProductDetails.create(ProductData);
 
-    return res.status(201).send(`Data post sucessfully , ${postData}`);
+    return res.status(201).json({message:'Data uploaded sucessfully'});
   } catch (err) {
-    return res.status(401).send("Product Detail not sended to database"+err.message);
+    return res.status(401).json({message:'Data uploading Failed'});
   }
 };
 
@@ -28,12 +28,12 @@ export const postData = async (req, res) => {
 export const getData=async (req, res) => {
     try {
       let getProductDetail = await ProductDetails.find({ user: req.user.id });
-  
-      return res
-        .status(201)
-        .json({getProductDetail});
+      if(!getProductDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res.status(201).json({message:'Data fetched Sucessfully',getProductDetail});
     } catch (err) {
-      return res.status(401).send("Data Fetching failed"+err.message);
+      return res.status(401).json({message:'Data fetching Failed'});
     }
   };
 
@@ -43,9 +43,12 @@ export const getData=async (req, res) => {
       let { id } = req.params;
       let getProductDetail = await ProductDetails.findById(req.user.id);
   
-      return res.status(201).json({getProductDetail});
+      if(!getProductDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res.status(201).json({message:'Data fetched Sucessfully',getProductDetail});
     } catch (err) {
-      return res.status(401).send("Specific Data Fetching failed"+err.message);
+      return res.status(401).json({message:'Data fetching Failed'});
     }
   };
 
@@ -57,11 +60,11 @@ export const getData=async (req, res) => {
       let updateProduct = await ProductDetails.findByIdAndUpdate(id, req.body);
   
       if (!updateProduct) {
-        return res.status(401).send("Data not found that specific id");
+        return res.status(401).json({message:'Details not found'});
       }
-      return res.status(201).send("Data Updated Sucessfull" + updateProduct);
+      return res.status(201).json({message:'Data updated Sucessfully'});
     } catch (err) {
-      return res.status(401).send("Specific data updating failed"+err.message);
+      return res.status(401).json({message:'Data updating Failed'});
     }
   };
 
@@ -73,14 +76,12 @@ export const getData=async (req, res) => {
       let deleteData = await ProductDetails.findByIdAndDelete(id );
   
       if (!deleteData) {
-        return res.status(401).send("Data not found that specific Id");
+        return res.status(401).json({message:'Details not found'});
       }
   
-      return res
-        .status(401)
-        .send("Specific data Deleting Sucessfully " + deleteData);
+      return res.status(201).json({message:'Data deleted sucessfully'});
     } catch (error) {
-      return res.status(401).send("Specific data Deleting failed"+error.message);
+      return res.status(401).json({message:'Data deleting Failed'});
     }
   };
 

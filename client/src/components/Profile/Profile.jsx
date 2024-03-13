@@ -4,13 +4,19 @@ import { useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Forms from "./Forms";
 import axios from "axios";
-
+import { useSelector } from "react-redux";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import DemoCard from "./VCards/DemoCard";
 
 // import Profile_details from "../Profile_details";
 
 const UserProfile = ({ userDetail, setUserDetail }) => {
-  console.log(userDetail);
+  const { currentUser,loading,error } = useSelector((state) => state.user);
   let [show, setShow] = useState(false);
   let { id } = useParams();
   let [slideClose, setSlideShow] = useState(false);
@@ -23,8 +29,7 @@ const UserProfile = ({ userDetail, setUserDetail }) => {
   let [testimonialForm, setTestimonialForm] = useState(false);
 
   //Basic Detail form states:
-  let [banner, setBanner] = useState("");
-  let bannerRef = useRef(null);
+  let [banner, setBanner] = useState();
   let [logo, setLogo] = useState();
   let [fullName, setFullName] = useState();
   let [profession, setProfession] = useState();
@@ -69,25 +74,27 @@ const UserProfile = ({ userDetail, setUserDetail }) => {
   let [clientName, setClientName] = useState();
   let [clientFeedbackDate, setClientFeedbackDate] = useState();
   let [clientFeedback, setClientFeedback] = useState();
+  //Fetch data from mongoDb:
 
-  useEffect(() => {
-    let getLoginUserData = () => {
-      try {
-        axios
-          .get(`https://server-px9z.onrender.com/login/${id}`)
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-      } catch (err) {
-        alert("Login data not found");
-      }
-    };
+  let[ID,setID]=useState([]);
 
-    getLoginUserData();
-  }, []);
+  let [BasicData, setBasicData] = useState([]);
+  // let [BasicEdit, setBasicEdit] = useState(false);
+  let [ContactData, setContactData] = useState([]);
+
+  // let [ContactEdit, setContactEdit] = useState(false);
+  let [ServiceData, setServiceData] = useState([]);
+  // let [ServiceEdit, setServiceEdit] = useState(false);
+  let [ProductData, setProductData] = useState([]);
+  // let [ProductEdit, setProductEdit] = useState(false);
+  let [GalleryData, setGalleryData] = useState([]);
+  // let [GalleryEdit, setGalleryEdit] = useState(false);
+  let [SocialMediaData, setSocialMediaData] = useState([]);
+  // let [SocialMediaEdit, setSocialMediaEdit] = useState(false);
+  let [TestimonialData, setTestimonialData] = useState([]);
+  // let [TestimonialEdit, setTestimonialEdit] = useState(false);
+
+
   return (
     <>
       <div className="profile_container">
@@ -129,7 +136,6 @@ const UserProfile = ({ userDetail, setUserDetail }) => {
           setSocialMediaForm={setSocialMediaForm}
           setTestimonialForm={setTestimonialForm}
           banner={banner}
-          bannerRef={bannerRef}
           logo={logo}
           fullName={fullName}
           profession={profession}
@@ -195,14 +201,46 @@ const UserProfile = ({ userDetail, setUserDetail }) => {
           setClientName={setClientName}
           setClientFeedbackDate={setClientFeedbackDate}
           setClientFeedback={setClientFeedback}
+          //Fetch data from mongoDb:
+          ID={ID}
+          setID={setID}
+          BasicData={BasicData}
+          setBasicData={setBasicData}
+          ContactData={ContactData}
+          setContactData={setContactData}
+          ServiceData={ServiceData}
+          setServiceData={setServiceData}
+          ProductData={setProductData}
+          setProductData={setProductData}
+          GalleryData={GalleryData}
+          setGalleryData={setGalleryData}
+          SocialMediaData={SocialMediaData}
+          setSocialMediaData={setSocialMediaData}
+          TestimonialData={TestimonialData}
+          setTestimonialData={setTestimonialData}
         />
-      <DemoCard/>
+        <DemoCard
+          BasicData={BasicData}
+          setBasicData={setBasicData}
+          ContactData={ContactData}
+          setContactData={setContactData}
+          ServiceData={ServiceData}
+          setServiceData={setServiceData}
+          ProductData={ProductData}
+          setProductData={setProductData}
+          GalleryData={GalleryData}
+          setGalleryData={setGalleryData}
+          SocialMediaData={SocialMediaData}
+          setSocialMediaData={setSocialMediaData}
+          TestimonialData={TestimonialData}
+          setTestimonialData={setTestimonialData}
+        />
       </div>
       <div className="profile_details">
         <div className="profile_image">
           <img
             onClick={() => setShow(!show)}
-            src={userDetail.profile}
+            src={currentUser.profile}
             alt="profile"
           />
         </div>

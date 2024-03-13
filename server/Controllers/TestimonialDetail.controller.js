@@ -17,9 +17,9 @@ export const postData = async (req, res) => {
 
     let postData = await TestimonialDetails.create(TestimonialData);
 
-    return res.status(201).send(`Data post sucessfully , ${postData}`);
+    return res.status(201).json({message:'Data uploaded sucessfully'});
   } catch (err) {
-    return res.status(401).send("Testimonial Detail not sended to database"+err.message);
+    return res.status(401).json({message:'Data uploading failed'});
   }
 };
 
@@ -27,12 +27,13 @@ export const postData = async (req, res) => {
 export const getData=async (req, res) => {
     try {
       let getTestimonialDetail = await TestimonialDetails.find({ user: req.user.id });
+      if(!getTestimonialDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
   
-      return res
-        .status(201)
-        .json({getTestimonialDetail});
+      return res.status(201).json({message:'Data fetched sucessfully',getTestimonialDetail});
     } catch (err) {
-      return res.status(401).send("Data Fetching failed"+err.message);
+      return res.status(401).json({message:'Data fetching failed'});
     }
   };
 
@@ -41,10 +42,12 @@ export const getData=async (req, res) => {
     try {
       let { id } = req.params;
       let getTestimonialDetail = await TestimonialDetails.findById(req.user.id);
-  
-      return res.status(201).json({getTestimonialDetail});
+      if(!getTestimonialDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res.status(201).json({message:'Data fetched sucessfully',getTestimonialDetail});
     } catch (err) {
-      return res.status(401).send("Specific Data Fetching failed"+err.message);
+      return res.status(401).json({message:'Data fetching failed'});
     }
   };
 
@@ -56,11 +59,11 @@ export const getData=async (req, res) => {
       let updateTestimonial = await TestimonialDetails.findByIdAndUpdate(id, req.body);
   
       if (!updateTestimonial) {
-        return res.status(401).send("Data not found that specific id");
+        return res.status(401).json({message:"Data not found that specific id"});
       }
-      return res.status(201).send("Data Updated Sucessfull" + updateTestimonial);
+      return res.status(201).json({message:"Data Updated Sucessfully"});
     } catch (err) {
-      return res.status(401).send("Specific data updating failed"+err.message);
+      return res.status(401).json({message:'Data updating failed'});
     }
   };
 
@@ -72,14 +75,12 @@ export const getData=async (req, res) => {
       let deleteData = await TestimonialDetails.findByIdAndDelete(id );
   
       if (!deleteData) {
-        return res.status(401).send("Data not found that specific Id");
+        return res.status(401).json({message:"Data not found that specific Id"});
       }
   
-      return res
-        .status(401)
-        .send("Specific data Deleting Sucessfully " + deleteData);
+      return res.status(201).json({message:'Data deleted sucessfully'});
     } catch (error) {
-      return res.status(401).send("Specific data Deleting failed"+error.message);
+      return res.status(401).json({message:'Data deleting failed'});
     }
   };
 

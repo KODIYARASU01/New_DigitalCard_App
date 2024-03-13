@@ -19,9 +19,9 @@ export const postData = async (req, res) => {
 
     let postData = await SocialMediaDetails.create(SocialMediaData);
 
-    return res.status(201).send(`Data post sucessfully , ${postData}`);
+    return res.status(201).json({message:'Data uploaded sucessfully'});
   } catch (err) {
-    return res.status(401).send("SocialMedia Detail not sended to database" +err.message);
+    return res.status(401).json({message:'Data uploading Failed'});
   }
 };
 
@@ -30,11 +30,12 @@ export const getData=async (req, res) => {
     try {
       let getSocialMediaDetail = await SocialMediaDetails.find({ user: req.user.id });
   
-      return res
-        .status(201)
-        .json({getSocialMediaDetail});
+      if(!getSocialMediaDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res.status(201).json({message:'Data fetched sucessfully',getSocialMediaDetail});
     } catch (err) {
-      return res.status(401).send("Data Fetching failed");
+      return res.status(401).json({message:'Data fetching failed'});
     }
   };
 
@@ -43,10 +44,13 @@ export const getData=async (req, res) => {
     try {
       let { id } = req.params;
       let getSocialMediaDetail = await SocialMediaDetails.findById(req.user.id);
-  
-      return res.status(201).json({getSocialMediaDetail});
+
+      if(!getSocialMediaDetail){
+        return res.status(401).json({message:'Details not found'});
+      }
+      return res.status(201).json({message:'Data fetched sucessfully',getSocialMediaDetail});
     } catch (err) {
-      return res.status(401).send("Specific Data Fetching failed");
+      return res.status(401).json({message:'Data fetching failed'});
     }
   };
 
@@ -58,11 +62,11 @@ export const getData=async (req, res) => {
       let updateSocialMediaDetails = await SocialMediaDetails.findByIdAndUpdate(id, req.body);
   
       if (!updateSocialMediaDetails) {
-        return res.status(401).send("Data not found that specific id");
+        return res.status(401).json({message:"Data not found that specific id"});
       }
-      return res.status(201).send("Data Updated Sucessfull" + updateSocialMediaDetails);
+      return res.status(201).json({message:'Data updated sucessfully'});
     } catch (err) {
-      return res.status(401).send("Specific data updating failed");
+      return res.status(401).json({message:'Data updating failed'});
     }
   };
 
@@ -74,14 +78,12 @@ export const getData=async (req, res) => {
       let deleteData = await SocialMediaDetails.findByIdAndDelete(id );
   
       if (!deleteData) {
-        return res.status(401).send("Data not found that specific Id");
+        return res.status(401).json({message:"Data not found that specific Id"});
       }
   
-      return res
-        .status(401)
-        .send("Specific data Deleting Sucessfully " + deleteData);
+      return res.status(201).json({message:'Data deleted sucessfully'});
     } catch (error) {
-      return res.status(401).send("Specific data Deleting failed");
+      return res.status(401).json({message:'Data deleting failed'});
     }
   };
 

@@ -16,15 +16,15 @@ app.use(express.static('./public'));
 let PORT = process.env.PORT || 3000;
 let uri = process.env.MONGODB_URI;
 
-//Using Multer package:
- multer.diskStorage({
-  destination:(res,file,cb)=>{
-cb(null,'./public/Images')
-  },
-  filename:(req,res,cb)=>{
-    cb(null,file.fieldname + '_'+Date.now()+ path.extname(file.orginalname));
-  }
- });
+// //Using Multer package:
+//  multer.diskStorage({
+//   destination:(res,file,cb)=>{
+// cb(null,'./public/Images')
+//   },
+//   filename:(req,res,cb)=>{
+//     cb(null,file.fieldname + '_'+Date.now()+ path.extname(file.orginalname));
+//   }
+//  });
 
 //All Routes:
 

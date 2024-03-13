@@ -13,6 +13,16 @@ import connect from "../../assets/connect.gif";
 import video from "../../assets/video.gif";
 import logout from "../../assets/logout.gif";
 import Forms from "./Forms";
+import { useDispatch } from "react-redux";
+import {
+  updateUserStart,
+  updateUserSuccess,
+  updateUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  deleteUserFailure,
+  signOut,
+} from "../../redux/user/userSlice.js";
 const Sidebar = ({
   slideClose,
   basicForm,
@@ -31,6 +41,15 @@ const Sidebar = ({
   setSocialMediaForm,
   setTestimonialForm,
 }) => {
+  let dispatch=useDispatch();
+  const handleSignOut = async () => {
+    try {
+      await fetch("http://localhost:5001/api/auth/signout");
+      dispatch(signOut());
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="sidebar_container" id={slideClose ? "close" : "open"}>
@@ -263,7 +282,7 @@ const Sidebar = ({
         <div className="logout_container">
           <div className="box">
             <img src={logout} alt="logout" title="Logout" />
-            <p>Logout</p>
+            <p onClick={handleSignOut}>Logout</p>
           </div>
         </div>
       </div>

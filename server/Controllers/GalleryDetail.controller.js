@@ -10,77 +10,73 @@ export const postData = async (req, res) => {
     }
     let GalleryData = {
       user: req.user.id,
-        galleryImage: req.body.galleryImage,
-        videoURL: req.body.videoURL,
+      galleryImage: req.body.galleryImage,
+      videoURL: req.body.videoURL,
     };
 
     let postData = await GalleryDetails.create(GalleryData);
 
-    return res.status(201).send(`Data post sucessfully , ${postData}`);
+    return res.status(201).json({ message: "Data upload sucessfully" });
   } catch (err) {
-    return res.status(401).send("Gallery Detail not sended to database"+err.message);
+    return res.status(401).json({ message: "Data uploading Failed" });
   }
 };
 
-
-export const getData=async (req, res) => {
-    try {
-      let getGalleryDetail = await GalleryDetails.find({ user: req.user.id });
-  
-      return res
-        .status(201)
-        .json({getGalleryDetail});
-    } catch (err) {
-      return res.status(401).send("Data Fetching failed"+err.message);
+export const getData = async (req, res) => {
+  try {
+    let getGalleryDetail = await GalleryDetails.find({ user: req.user.id });
+    if (!getGalleryDetail) {
+      return res.status(401).json({ message: "Details not found" });
     }
-  };
+    return res.status(201).json({ message: "Data fetched Sucessfully",getGalleryDetail });
+  } catch (err) {
+    return res.status(401).json({ message: "Data fetching Failed" });
+  }
+};
 
+export const getSpecificData = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let getGalleryDetail = await GalleryDetails.findById(req.user.id);
 
-  export const getSpecificData=async (req, res) => {
-    try {
-      let { id } = req.params;
-      let getGalleryDetail = await GalleryDetails.findById(req.user.id);
-  
-      return res.status(201).json({getGalleryDetail});
-    } catch (err) {
-      return res.status(401).send("Specific Data Fetching failed"+err.message);
+    if (!getGalleryDetail) {
+      return res.status(401).json({ message: "Details not found" });
     }
-  };
+    return res.status(201).json({ message: "Data fetching sucessfully",getGalleryDetail });
+  } catch (err) {
+    return res.status(401).send("Specific Data Fetching failed" + err.message);
+  }
+};
 
+export const updateData = async (req, res) => {
+  try {
+    let { id } = req.params;
 
-  export const updateData=async (req, res) => {
-    try {
-      let { id } = req.params;
-  
-      let updateGallery = await GalleryDetails.findByIdAndUpdate(id, req.body);
-  
-      if (!updateGallery) {
-        return res.status(401).send("Data not found that specific id");
-      }
-      return res.status(201).send("Data Updated Sucessfull" + updateGallery);
-    } catch (err) {
-      return res.status(401).send("Specific data updating failed"+err.message);
+    let updateGallery = await GalleryDetails.findByIdAndUpdate(id, req.body);
+
+    if (!updateGallery) {
+      return res.status(401).json({message:'Details not found'});
     }
-  };
+    return res.status(201).json({message:'Data updated Sucessfully'});
+  } catch (err) {
+    return res.status(401).json({message:'Data updating Failed'});
+  }
+};
 
+export const deleteData = async (req, res) => {
+  try {
+    let id = req.params.id;
 
-  export const deleteData= async (req, res) => {
-    try {
-      let id = req.params.id;
-  
-      let deleteData = await GalleryDetails.findByIdAndDelete(id );
-  
-      if (!deleteData) {
-        return res.status(401).send("Data not found that specific Id");
-      }
-  
-      return res
-        .status(401)
-        .send("Specific data Deleting Sucessfully " + deleteData);
-    } catch (error) {
-      return res.status(401).send("Specific data Deleting failed"+error.message);
+    let deleteData = await GalleryDetails.findByIdAndDelete(id);
+
+    if (!deleteData) {
+      return res.status(401).json({message:'Details not found'});
     }
-  };
 
+    return res.status(201).json({message:'Data deleted Sucessfully'});
+  } catch (error) {
+    return res.status(401).json({message:'Data deleting Failed'});
+  }
+};
 
-  export default router;
+export default router;

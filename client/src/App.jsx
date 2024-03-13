@@ -24,6 +24,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import { useState } from "react";
 import Profile_details from "./components/Profile_details";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 const App = () => {
   let [userDetail, setUserDetail] = useState();
@@ -76,7 +77,7 @@ const App = () => {
     // <main >
     //   <RouterProvider router={router}  userDetail={userDetail} setUserDetail={setUserDetail}></RouterProvider>
     // </main>
-    <BrowserRouter>
+
       <Routes>
         <Route
           path="/"
@@ -85,30 +86,37 @@ const App = () => {
           }
         />
         <Route path="/signup" element={<SignUp />} />
-        <Route
-          path="/user_admin"
-          element={
-            <UserProfile
-              userDetail={userDetail}
-              setUserDetail={setUserDetail}
-            />
-          }
-        />
+
+        <Route element={<PrivateRoute />}>
+          <Route
+            path="/user_admin"
+            element={
+              <UserProfile
+                userDetail={userDetail}
+                setUserDetail={setUserDetail}
+              />
+            }
+          />
+        </Route>
+
         <Route
           path="/"
           element={
             <SignIn userDetail={userDetail} setUserDetail={setUserDetail} />
           }
         />
-           <Route
+        <Route
           path="/profile_details"
           element={
-            <Profile_details userDetail={userDetail} setUserDetail={setUserDetail} />
+            <Profile_details
+              userDetail={userDetail}
+              setUserDetail={setUserDetail}
+            />
           }
         />
-        <Route path="new_card" element={<NewCard2/>}/>
+        <Route path="new_card" element={<NewCard2 />} />
       </Routes>
-    </BrowserRouter>
+
   );
 };
 
