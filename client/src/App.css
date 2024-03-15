@@ -6,18 +6,20 @@
 body{
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 .isLoading{
   width: 100vw;
   height: 100vh;
-  background-image: url(../src/assets/Background/27.jpg);
+  /* background-image: url(../src/assets/Background/21.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
   gap: 1rem;
   margin: 10px auto;
 
@@ -33,6 +35,7 @@ body{
   color: gray;
   display: flex;
   align-items: center;
+  color: #000;
   justify-content: center;
   gap: 1rem;
 
