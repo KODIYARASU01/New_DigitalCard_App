@@ -30,7 +30,7 @@ const SignUp = () => {
         let data = { userName, email, password, profile };
         setLoader1(true);
         let result = await axios.post(
-          "https://server-px9z.onrender.com/api/register",
+          "http://localhost:3000/api/register",
           data
         );
 

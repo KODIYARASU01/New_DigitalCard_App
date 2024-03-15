@@ -7,3 +7,33 @@ body{
   width: 100vw;
   height: 100vh;
 }
+.isLoading{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../src/assets/Background/27.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px auto;
+
+}
+.intro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro h2{
+    text-align: center;
+  font-size: 1.4rem;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+}

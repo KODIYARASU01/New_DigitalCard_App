@@ -141,7 +141,7 @@ let Forms = ({
     const token = localStorage.getItem("token");
     setLoader2(true);
     axios
-      .get(`https://server-px9z.onrender.com/basic_detail`, {
+      .get(`http://localhost:3000/basic_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -162,7 +162,7 @@ let Forms = ({
             transition: Slide,
           });
         }
-        setID(res.data.result[0]._id)
+        setID(res.data.result[0]._id);
         setBanner(res.data.result[0].banner);
         setLogo(res.data.result[0].logo);
         setFullName(res.data.result[0].fullName);
@@ -188,7 +188,7 @@ let Forms = ({
     const token = localStorage.getItem("token");
     axios
 
-      .get(`https://server-px9z.onrender.com/contact_detail`, {
+      .get(`http://localhost:3000/contact_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -238,7 +238,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`https://server-px9z.onrender.com/service_detail`, {
+      .get(`http://localhost:3000/service_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -281,7 +281,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`https://server-px9z.onrender.com/product_detail`, {
+      .get(`http://localhost:3000/product_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -325,7 +325,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`https://server-px9z.onrender.com/gallery_detail`, {
+      .get(`http://localhost:3000/gallery_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -367,7 +367,7 @@ let Forms = ({
     // Retrieve token from local storage or wherever it's stored
     const token = localStorage.getItem("token");
     axios
-      .get(`https://server-px9z.onrender.com/socialMedia_detail`, {
+      .get(`http://localhost:3000/socialMedia_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -413,7 +413,7 @@ let Forms = ({
     const token = localStorage.getItem("token");
     axios
 
-      .get(`https://server-px9z.onrender.com/testimonial_detail`, {
+      .get(`http://localhost:3000/testimonial_detail`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -453,11 +453,11 @@ let Forms = ({
         setLoader2(false);
       });
   }
-  const onUploadBannerImage = async (e) => {
-    let base64 = await convertBannerImageToBase64(e.target.files[0]);
+  // const onUploadBannerImage = async (e) => {
+  //   let base64 = await convertBannerImageToBase64(e.target.files[0]);
 
-    setBanner(base64);
-  };
+  //   setBanner(base64);
+  // };
   //Formik does not support file upload so we could create handler :
   const onUpload = async (e) => {
     let base64 = await convertToBase64Basic(e.target.files[0]);
@@ -497,8 +497,10 @@ let Forms = ({
     try {
       // Retrieve token from local storage or wherever it's stored
       const token = localStorage.getItem("token");
+      const formData = new FormData();
+      formData.append("banner", banner);
       let data = {
-        banner,
+        formData,
         logo,
         fullName,
         profession,
@@ -507,9 +509,10 @@ let Forms = ({
       setLoader2(true);
       // Make authenticated request with bearer token
       await axios
-        .post("https://server-px9z.onrender.com/basic_detail", data, {
+        .post("http://localhost:3000/basic_detail", data, {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         })
         .then((responce) => {
@@ -557,7 +560,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`https://server-px9z.onrender.com/basic_detail/${BasicData._id}`, data, {
+        .put(`http://localhost:3000/basic_detail/${BasicData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -610,7 +613,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("https://server-px9z.onrender.com/contact_detail", Contactdata, {
+        .post("http://localhost:3000/contact_detail", Contactdata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -654,7 +657,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`https://server-px9z.onrender.com/contact_detail/${ContactData._id}`, data, {
+        .put(`http://localhost:3000/contact_detail/${ContactData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -700,7 +703,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("https://server-px9z.onrender.com/service_detail", Servicedata, {
+        .post("http://localhost:3000/service_detail", Servicedata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -746,7 +749,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`https://server-px9z.onrender.com/service_detail/${ServiceData._id}`, data, {
+        .put(`http://localhost:3000/service_detail/${ServiceData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -793,7 +796,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("https://server-px9z.onrender.com/product_detail", Productdata, {
+        .post("http://localhost:3000/product_detail", Productdata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -839,7 +842,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`https://server-px9z.onrender.com/product_detail/${ProductData._id}`, data, {
+        .put(`http://localhost:3000/product_detail/${ProductData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -885,7 +888,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("https://server-px9z.onrender.com/gallery_detail", Gallerydata, {
+        .post("http://localhost:3000/gallery_detail", Gallerydata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -932,7 +935,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .put(`https://server-px9z.onrender.com/gallery_detail/${GalleryData._id}`, data, {
+        .put(`http://localhost:3000/gallery_detail/${GalleryData._id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -981,7 +984,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("https://server-px9z.onrender.com/socialMedia_detail", SocialMediadata, {
+        .post("http://localhost:3000/socialMedia_detail", SocialMediadata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -1030,7 +1033,7 @@ let Forms = ({
       // Make authenticated request with bearer token
       await axios
         .put(
-          `https://server-px9z.onrender.com/socialMedia_detail/${SocialMediaData._id}`,
+          `http://localhost:3000/socialMedia_detail/${SocialMediaData._id}`,
           data,
           {
             headers: {
@@ -1079,7 +1082,7 @@ let Forms = ({
       };
       // Make authenticated request with bearer token
       await axios
-        .post("https://server-px9z.onrender.com/testimonial_detail", SocialMediadata, {
+        .post("http://localhost:3000/testimonial_detail", SocialMediadata, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -1127,7 +1130,7 @@ let Forms = ({
       // Make authenticated request with bearer token
       await axios
         .put(
-          `https://server-px9z.onrender.com/testimonial_detail/${TestimonialData._id}`,
+          `http://localhost:3000/testimonial_detail/${TestimonialData._id}`,
           data,
           {
             headers: {
@@ -1203,23 +1206,17 @@ let Forms = ({
                   Upload Banner Image
                   <img
                     className="banner"
-                    src={!banner === undefined ? banner : background}
+                    src={background}
                     alt=""
                     name="bannerImage"
                   />
-                  {/* <img
-                    src={upload}
-                    alt="upload"
-                    className="upload"
-                    name="bannerImage"
-                  /> */}
                 </label>
 
                 <input
-                  onChange={onUploadBannerImage}
                   type="file"
                   name="bannerImage"
                   id="bannerImage"
+                  onChange={(e) => setBanner(e.target.files[0])}
                 />
               </div>
               {/* Logo */}

@@ -29,7 +29,7 @@ const SignIn = ({ userDetail, setUserDetail }) => {
         let data = { email, password };
         setLoader(true);
         let result = await axios
-          .post("https://server-px9z.onrender.com/api/login", data)
+          .post("http://localhost:3000/api/login", data)
           // .then((res) => {
           //   setUserDetail(res.data);
           //   setLoader(false);

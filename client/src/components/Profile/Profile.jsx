@@ -29,7 +29,7 @@ const UserProfile = ({ userDetail, setUserDetail }) => {
   let [testimonialForm, setTestimonialForm] = useState(false);
 
   //Basic Detail form states:
-  let [banner, setBanner] = useState();
+  let [banner, setBanner] = useState(null);
   let [logo, setLogo] = useState();
   let [fullName, setFullName] = useState();
   let [profession, setProfession] = useState();
@@ -240,7 +240,7 @@ const UserProfile = ({ userDetail, setUserDetail }) => {
         <div className="profile_image">
           <img
             onClick={() => setShow(!show)}
-            src={currentUser.profile}
+            src={userDetail.profile}
             alt="profile"
           />
         </div>

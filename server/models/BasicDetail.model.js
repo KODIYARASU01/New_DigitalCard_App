@@ -7,10 +7,9 @@ let BasiDetailSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    banner:{
-      type:String,
-    
-    },
+    name: String,
+    banner: Buffer,
+    contentType: String,
     logo: {
       type: String,
       required: true,

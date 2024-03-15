@@ -1,122 +1,99 @@
 import "./App.css";
-
-import Profile from "./components/Profile/Profile";
-// import Register from "./components/Register";
-// import Reset from "./components/Reset";
-// import Recovery from "./components/Recovery";
-// import Password from "./components/Password";
 import {
-  BrowserRouter,
-  createBrowserRouter,
+
   Route,
-  RouterProvider,
+
   Routes,
 } from "react-router-dom";
-// import Login from "./components/Login";
+
 import UserProfile from "./components/Profile/Profile";
-// import Sidebar from "./components/Profile/Sidebar";
-// import DigitalCard from "./components/Profile/DigitalCard";
-// import DigitalCard2 from "./components/Profile/DigitalCard2";
-// import DigitalCard3 from "./components/Profile/DigitalCard3";
-// import NewCard from "./components/Profile/NewCard";
+
 import NewCard2 from "./components/Profile/NewCard2";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Profile_details from "./components/Profile_details";
 import PrivateRoute from "./components/PrivateRoute.jsx";
-
+import { DNA, Comment } from "react-loader-spinner";
 const App = () => {
   let [userDetail, setUserDetail] = useState();
-
-  // let router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <SignIn userDetail={userDetail} setUserDetail={setUserDetail} />,
-  //   },
-  //   {
-  //     path: "/signup",
-  //     element: <SignUp />,
-  //   },
-
-  //   {
-  //     path: "/profile",
-  //     element: <Profile  />,
-  //   },
-  //   {
-  //     path: "/user_admin",
-  //     element: <UserProfile  userDetail={userDetail} setUserDetail={setUserDetail} />,
-  //   },
-  //   {
-  //     path: "/sidebar",
-  //     element: <Sidebar />,
-  //   },
-  //   {
-  //     path: "/digitalCard",
-  //     element: <DigitalCard />,
-  //   },
-  //   {
-  //     path: "/digitalCard2",
-  //     element: <DigitalCard2 />,
-  //   },
-  //   {
-  //     path: "/digitalCard3",
-  //     element: <DigitalCard3 />,
-  //   },
-  //   {
-  //     path: "/newCard",
-  //     element: <NewCard />,
-  //   },
-  //   {
-  //     path: "/newCard2",
-  //     element: <NewCard2 />,
-  //   },
-  // ]);
+  let [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  });
 
   return (
-    // <main >
-    //   <RouterProvider router={router}  userDetail={userDetail} setUserDetail={setUserDetail}></RouterProvider>
-    // </main>
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <SignIn userDetail={userDetail} setUserDetail={setUserDetail} />
-          }
-        />
-        <Route path="/signup" element={<SignUp />} />
-
-        <Route element={<PrivateRoute />}>
+    <>
+      {isLoading ? (
+        <div className="isLoading">
+          <DNA
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+          <div className="intro">
+            <h2>
+              {" "}
+              Welcome to AristosTech Digital Card Creations..{" "}
+              <Comment
+                visible={true}
+                height="40"
+                width="40"
+                ariaLabel="comment-loading"
+                wrapperStyle={{}}
+                wrapperClass="comment-wrapper"
+                color="#fff"
+                backgroundColor="#F4442E"
+              />
+            </h2>
+          </div>
+        </div>
+      ) : (
+        <Routes>
           <Route
-            path="/user_admin"
+            path="/"
             element={
-              <UserProfile
+              <SignIn userDetail={userDetail} setUserDetail={setUserDetail} />
+            }
+          />
+          <Route path="/signup" element={<SignUp />} />
+
+          <Route element={<PrivateRoute />}>
+            <Route
+              path="/user_admin"
+              element={
+                <UserProfile
+                  userDetail={userDetail}
+                  setUserDetail={setUserDetail}
+                />
+              }
+            />
+          </Route>
+
+          <Route
+            path="/"
+            element={
+              <SignIn userDetail={userDetail} setUserDetail={setUserDetail} />
+            }
+          />
+          <Route
+            path="/profile_details"
+            element={
+              <Profile_details
                 userDetail={userDetail}
                 setUserDetail={setUserDetail}
               />
             }
           />
-        </Route>
-
-        <Route
-          path="/"
-          element={
-            <SignIn userDetail={userDetail} setUserDetail={setUserDetail} />
-          }
-        />
-        <Route
-          path="/profile_details"
-          element={
-            <Profile_details
-              userDetail={userDetail}
-              setUserDetail={setUserDetail}
-            />
-          }
-        />
-        <Route path="new_card" element={<NewCard2 />} />
-      </Routes>
-
+          <Route path="new_card" element={<NewCard2 />} />
+        </Routes>
+      )}
+    </>
   );
 };
 
